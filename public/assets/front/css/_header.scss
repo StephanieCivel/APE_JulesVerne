@@ -1,0 +1,122 @@
+/*************HEADER****************/
+
+/*- Alignement du texte : centré
+- Ajouter un hyperlien index.html sur le logo
+- Couleur de fond de la navigation : #40CCEA
+- Couleur des ancres vers les sections : blanc
+- Espacer les hyperliens*/
+
+header {
+    background-image: url("../images/199490002_l_normal_none-removebg-preview.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    height: 300px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 100px;
+
+
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 130px;
+    background: #ffffff;
+    opacity: 0.8;
+    border-radius: 20px;
+    text-align: center;
+    align-content: flex-start;
+    width: 50%;
+
+}
+
+.header h1 {
+    display: flex;
+}
+
+.header h2 {
+    text-align: center;
+    width: 100%;
+    background: #ffffff;
+    opacity: 0.8;
+    border-radius: 20px;
+    text-align: center;
+}
+
+header ul {
+    padding: 1em;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    background: #1ca4c8;
+    color: #000000;
+    width: 100%;
+    margin-bottom: 0px;
+
+}
+
+header a {
+    text-decoration: none;
+    color: #000000;
+
+}
+
+.header img {
+    width: 150px;
+
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    margin-top: 120px;
+
+}
+
+.ape {
+    font-family: 'Parisienne', cursive;
+    color: #000000;
+}
+
+.v {
+    color: #44f444;
+    text-shadow: 3px 3px #000000;
+}
+
+.j {
+    color: #3da2e5;
+    text-shadow: 3px 3px #000000;
+}
+
+/*effet barre d'accueil*/
+
+.accueil {
+    padding-top: 150px;
+    width: 100%;
+}
+
+li:hover {
+    background-color: #000000;
+    transform: scale(1.5);
+    transition-duration: 0.4s;
+}
+
+a:hover {
+    color: #EB3349;
+}
+
+a {
+    transition-duration: 0.2s;
+
+
+}

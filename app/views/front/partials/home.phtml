@@ -1,0 +1,25 @@
+    <main>
+        <div class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/EqLMNIWBLBE"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+
+        </div>
+        <div class="diary">
+            <h2>Nos prochaine dates à retenir</h2>
+            <div class="agenda">
+                <?php foreach($data as $event):?>
+                <div class="date">
+                    <div class="dates">
+                        <p><?= $event->getDate()?></p>
+                    </div>
+                    <div class="comment">
+                        <ul><?= $event->getName()?></ul>
+                        <ul><?= $event->getAdress()?></ul>
+                        <ul><?= $event->getdescription()?></ul>
+                    </div>
+                </div>
+               <?php endforeach;?>
+            </div>
+    </main>

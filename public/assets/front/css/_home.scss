@@ -1,0 +1,97 @@
+/*************AGENDA****************/
+
+.video {
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+}
+
+.diary h2 {
+    background-color: #e6aa02;
+    width: 100%;
+    font-size: 30px;
+}
+
+.diary img {
+    display: flex;
+    width: 50px;
+}
+
+.diary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.diary agenda {
+    display: flex;
+}
+
+.agenda {
+    display: flex;
+    justify-content: center;
+    align-content: space-evenly;
+    flex-direction: column;
+    width: 70%;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #FF4475;
+    border-radius: 15px;
+    padding: 20px;
+
+}
+
+
+.diary h3 {
+    color: #000000;
+    font-size: 30px;
+
+}
+
+.agenda ul {
+    font-size: large;
+    color: #000000;
+    background-color: #ffffff;
+    width: 200px;
+    text-align: left;
+
+}
+
+.agenda p {
+    font-size: large;
+
+}
+
+.dates {
+    width: 100px;
+    height: 100px; // align-items: center;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; // margin-left: 50px;
+    background-color: #000000;
+    border-radius: 20px;
+    border: 4mm ridge
+}
+
+.date {
+    display: flex;
+    flex-direction: row; // width: 30%;
+    border-radius: 20px; // margin: 20px;
+    // padding-top: 5px;
+    // justify-content: flex-start;
+}
+
+.date p {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+
+}
+
+.comment {
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+/*************PHOTO****************/

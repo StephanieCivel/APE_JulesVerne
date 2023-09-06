@@ -1,0 +1,61 @@
+/*************CONTACT****************/
+
+
+article{
+	display: flex;
+	justify-content: center;
+}
+#contact {
+	margin-left: 20%
+}
+
+.form {
+	display: flex;
+	margin: 50px;
+	height: 800px;
+	width: 100%;
+}
+
+select {
+	width: 95%;
+
+}
+
+input {
+	width: 70%;
+	text-align: right;
+	border-radius: 0.5em;
+	border: #ccc;
+	Padding: 0.5em 1em;
+	font-size: 1.6rem;
+	color: #333;
+	background-color: #fff;
+	color: #000000;
+}
+
+label {
+	width: 30%;
+	Padding: 0.5em;
+	margin-right: 200px;
+	color: #000000;
+}
+
+textarea {
+	width: 95%;
+
+}
+
+fieldset {
+	margin-bottom: 2em;
+	margin-top: 2em;
+	Padding: 1em;
+	font-size: 1.6rem;
+	border: rgba(0, 0, 0, 0.2);
+	border-radius: 0.5em;
+	width: 500px;
+}
+
+.legende {
+	Padding: 1em;
+	font-size: 1.8rem;
+}
