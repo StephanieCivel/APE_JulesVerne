@@ -1,35 +1,16 @@
- <article>
-        <div class="form">
-            <?php if (isset($data)) {
-            foreach ($data as $value) {
-            echo $value;
-                                        }
-            } ?>
-        </div>
-        <form class="user" action="" method="post">
-            <div class="form-group">
-                <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Entrer adresse mail...">
-            </div>
-            <div class="form-group">
-                <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Mot de passe">
-            </div>
-            <div class="form-group">
-                <div class="custom-control custom-checkbox small">
-                    <input type="checkbox" class="custom-control-input" id="customCheck">
-                    <label class="custom-control-label" for="customCheck">Se rappeler de moi</label>
-                </div>
-            </div>
-            <input type="submit" name="loginForm" class="btn btn-primary btn-user btn-block" value="Valider">
-
-            </form>
-            <hr>
-            <div class="text-center">
-                <a class="small" href="forgot-password.html">Mot de passe oublier</a>
-            </div>
-            <div class="text-center">
-                <a class="small" href="?page=register">Créer un compte</a>
-            </div>
-            
-        </div>
-    </article>
-
+<main class="accounts">
+        <h2>Nos commandes ce mois-ci!</h2>
+            <div class="account">
+                <?php foreach($data as $user):?>
+                <table>
+                    <td><?= $user->getName()?></td>
+                    <td><?= $user->getFirst_name()?></td>
+                    <td><?= $user->getStudent_id()?>€</td>
+                    <td><?= $user->getTel()?></td>
+                    <td><?= $user->getEmail()?></td>
+                </table>
+                <input class="btn-edit" type="edit" value="Modifier">
+                <input class="btn-delete" type="delete" value="Supprimer">
+            </div>   
+        <?php endforeach;?>
+    </main>

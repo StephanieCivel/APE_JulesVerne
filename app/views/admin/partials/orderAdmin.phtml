@@ -1,0 +1,35 @@
+ <main class="commandes">
+         <h2>Administrateur</h2>
+            <h3>Nos ventes</h3>
+            <div class="commande">
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend>Article</legend>
+                        <label>Images : </label>
+                        <input type="file" name="img"><br>
+                        <label>Nom</label>
+                        <input type="text" name="name"><br>
+                        <label>Description</label>
+                        <input type="text" name="description"><br>
+                        <label>Prix</label>
+                        <input type="text" name="price"><br>
+                        <input class="btn-submit" name="addOrderForm" type="submit" value="Valider">
+                    </fieldset>
+                </form>
+                 
+                <?php if(isset($data) && !empty($data)): ?>
+                    <?php foreach($data['products'] as $product):?>
+                        <?phpvar_dump($product):?>
+                        <table>
+                            <td><img src="<?= $base_uri[0]?>/public/assets/front/images/<?= $product->getImgUrl()?>" alt="<?= $product->getName(); ?>"></td>
+                            <td><?= $product->getName()?></td>
+                            <td><?= $product->getDescription()?></td>
+                            <td><?= $product->getPrice()?>€</td>
+                            <td><input type="button" value="Ajouter au panier" /></td>
+                        </table>
+                        <input class="btn-edit" type="edit" value="Modifier">
+                        <input class="btn-delete" type="delete" value="Supprimer">
+                    <?php endforeach;?>
+                <?php endif; ?>
+            </div>
+    </main>

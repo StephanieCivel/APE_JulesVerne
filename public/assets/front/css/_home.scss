@@ -1,7 +1,7 @@
 /*************AGENDA****************/
 
 .video {
-    margin-top: 20px;
+    margin-top: 2rem;
     display: block;
     text-align: center;
 }
@@ -9,18 +9,20 @@
 .diary h2 {
     background-color: #e6aa02;
     width: 100%;
-    font-size: 30px;
+    font-size: 3rem;
 }
 
 .diary img {
     display: flex;
-    width: 50px;
+    width: 5rem;
 }
 
 .diary {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+
 }
 
 .diary agenda {
@@ -35,25 +37,24 @@
     width: 70%;
     justify-content: flex-end;
     align-items: center;
-    background-color: #FF4475;
-    border-radius: 15px;
+
     padding: 20px;
+
 
 }
 
 
 .diary h3 {
     color: #000000;
-    font-size: 30px;
+    font-size: 3rem;
 
 }
 
 .agenda ul {
     font-size: large;
-    color: #000000;
-    background-color: #ffffff;
-    width: 200px;
-    text-align: left;
+    color: #000000; // background-color: #ffffff;
+    width: 30rem;
+    text-align: center;
 
 }
 
@@ -63,23 +64,27 @@
 }
 
 .dates {
-    width: 100px;
-    height: 100px; // align-items: center;
-    margin-bottom: 10px;
+    width: 6rem;
+    height: 6rem; // align-items: center;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly; // margin-left: 50px;
     background-color: #000000;
-    border-radius: 20px;
+    border-radius: 1rem;
     border: 4mm ridge
 }
 
 .date {
     display: flex;
     flex-direction: row; // width: 30%;
-    border-radius: 20px; // margin: 20px;
+    border-radius: 1rem; // margin: 20px;
     // padding-top: 5px;
     // justify-content: flex-start;
+    border: solid;
+    background-color: #FF4475;
+    border-radius: 1rem;
 }
 
 .date p {
@@ -90,8 +95,14 @@
 }
 
 .comment {
-    margin-top: 25px;
-    margin-left: 20px;
+    margin-top: 1rem;
+    margin-left: 1rem;
 }
 
-/*************PHOTO****************/
+/*************ADMIN****************/
+
+.date input {
+    background-color: blue;
+    height: 1rem;
+    width: 4rem;
+}

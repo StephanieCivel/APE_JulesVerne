@@ -18,6 +18,7 @@ const AVAIABLE_ROUTES = [
         'action' => 'renderHome',
         'controller' => 'HomeController'
     ],
+    
     'ape'=>[
         'action' => 'render',
         'controller' => 'ApeController'
@@ -27,21 +28,33 @@ const AVAIABLE_ROUTES = [
         'controller' => 'TeamController'
         
     ],
-     'document'=>[
-        'action' => 'render',
+    'document'=>[
+        'action' => 'renderDocument',
         'controller' => 'DocumentController'
     ],
+    'documentAdmin'=>[
+        'action' => 'renderDocumentAdmin',
+        'controller' => 'DocumentAdminController'
+    ],
     'contact'=>[
-        'action' => 'render',
+        'action' => 'renderContact',
         'controller' => 'ContactController'
     ],
     'order'=>[
         'action' => 'renderOrder',
         'controller' => 'OrderController'
     ],
-    'account'=>[
+    'orderAdmin'=>[
+        'action' => 'renderOrderAdmin',
+        'controller' => 'OrderAdminController'
+    ],
+    'accountIdentifier'=>[
         'action' => 'render',
         'controller' => 'MainController'
+    ],
+    'account'=>[
+        'action' => 'renderAccount',
+        'controller' => 'AccountController'
     ],
     'basket'=>[
         'action' => 'render',

@@ -1,19 +1,27 @@
-
     <main class="document">
-        <h2>Retrouvez ci-dessous les résumés de nos diférentes réunions</h2>
+        <h3>les résumés de nos diférentes réunions</h3>
         <div class="documents">
-            <div class="generalAssemble">
-                <h3>Nos Assemblées Générales</h3>
-                <a href="assets/front/doc/agseptembre2022.pdf" download target="_blank">veuillez télécharger le document AG sep
-                    2022</a>
+            <?php if(isset($data) && !empty($data)): ?>
+            <div>
+            <h2>Les Assemblées générales</h2>
+                <?php  foreach($data as $document): ?>
+                <?php  if($document->getType() === 'ag'): ?>
+                <a download href="<?= $document->getUrl(); ?>"><?= $document->getUrl(); ?></a>
+                <?php endif;?>
+                <?php endforeach; ?>
             </div>
-            <div class="diversDoc">
-                <h3>Nos autres réunions</h3>
-                <a href="assets/front/doc/CR_réunion préparation festivités_2023.pdf" download target="_blank">veuillez télécharger
-                    préparation festivités_2023</a>
-            </div>
-        </div>
+            <div>
+                <h2>Les documents divers</h2>
+                <?php  foreach($data as $document): ?>
+                <?php  if($document->getType() === 'divers'): ?>
+                <a href="<?= $document->getUrl(); ?>"><?= $document->getUrl(); ?></a>
+                <?php endif;?>
+                <?php endforeach; ?>
+            
+                <?php endif; ?>
 
+             </div>
+        </div>
     </main>
 
 

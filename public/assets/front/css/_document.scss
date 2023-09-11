@@ -1,12 +1,19 @@
 .document a {
     color: #000000;
 }
-.documents{
+
+.documents {
     display: flex;
     justify-content: space-around;
     width: 100%;
     align-items: flex-start;
-    background : #ffffff; 
-    opacity:0.8;
+    background: #ffffff;
+    opacity: 0.8;
     border-radius: 20px;
+}
+
+/********DOCUMENT_ADMIN***************/
+
+.documents a {
+    display: block;
 }

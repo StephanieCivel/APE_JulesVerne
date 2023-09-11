@@ -1,0 +1,45 @@
+<main>
+        
+        <div class="diaryAdmin">
+            <h2>Administrateur</h2>
+            <h3>Agenda des évènements</h3>
+            <div class="agendaAdmin">
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend>Évènements</legend>
+                        <label>Date</label>
+                        <input type="text" name="date"><br>
+                        <label>Nom</label>
+                        <input type="text" name="name"><br>
+                        <label>Adresse</label>
+                        <input type="text" name="adress"><br>
+                        <label>Description</label>
+                        <input type="text" name="description"><br>
+                        <label>Lien</label>
+                        <input type="text" name="voluntary_link"><br>
+                        <input class="btn-submit" type="submit" value="Valider">
+                    </fieldset>
+                </form>
+            </div>
+             <div class="diary">
+            <h2>Nos prochaine dates à retenir</h2>
+            <div class="agenda">
+                <?php if(isset($data) && !empty($data)): ?>
+                <?php foreach($data['events'] as $event):?>
+                <div class="date">
+                    <div class="dates">
+                        <p><?= $event->getDate()?></p>
+                    </div>
+                    <div class="comment">
+                        <p><?= $event->getName()?></p>
+                        <p><?= $event->getAdress()?></p>
+                        <p><?= $event->getdescription()?></p>
+                    </div>
+                    <input class="btn-edit" type="edit" value="Modifier">
+                    <input class="btn-delete" type="delete" value="Supprimer">
+                </div>
+               <?php endforeach;?>
+               <?php endif; ?>
+            </div>
+        </div>
+    </main>

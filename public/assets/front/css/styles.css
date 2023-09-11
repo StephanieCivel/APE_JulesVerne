@@ -5,18 +5,37 @@
 - Couleur de fond de la navigation : #40CCEA
 - Couleur des ancres vers les sections : blanc
 - Espacer les hyperliens*/
+.navbar-menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 10px 0;
+}
+
+.navbar-toggle {
+  display: block;
+}
+
+.menu-open {
+  display: block;
+}
+
 header {
   background-image: url("../images/199490002_l_normal_none-removebg-preview.png");
   background-size: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
-  height: 300px;
+  height: 20rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
-  padding-top: 100px;
+  padding-top: 5rem;
 }
 
 .header {
@@ -24,7 +43,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 130px;
+  height: 20rem;
   background: #ffffff;
   opacity: 0.8;
   border-radius: 20px;
@@ -110,6 +129,78 @@ a {
   transition-duration: 0.2s;
 }
 
+/**************MENU BURGER**************/
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  color: white;
+}
+
+.navbar-logo {
+  font-size: 24px;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: none;
+}
+
+.navbar-menu li {
+  margin: 10px 0;
+}
+
+.navbar-menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 3px 0;
+  background-color: white;
+}
+
+@media screen and (min-width: 1200px) {
+  body {
+    margin: 16px auto;
+    max-width: 1168px;
+    /* 1200 - 16*2 */
+  }
+}
+/* valable pour tous les écrans */
+p {
+  line-height: 1.5;
+  color: #06F;
+}
+
+/* valable pour tous les écrans supérieures à 640px */
+@media screen and (min-width: 640px) {
+  p {
+    column-count: 2;
+    /* ! column à utiliser pour des exemples simples */
+  }
+}
+/* valable pour tous les écrans supérieures à 960px */
+@media screen and (min-width: 960px) {
+  p {
+    column-count: 3;
+  }
+}
 /*************FOOTER****************/
 footer {
   padding: 2em;
@@ -357,9 +448,14 @@ NOTRE EQUIPE
   border-radius: 20px;
 }
 
+/********DOCUMENT_ADMIN***************/
+.documents a {
+  display: block;
+}
+
 /*************AGENDA****************/
 .video {
-  margin-top: 20px;
+  margin-top: 2rem;
   display: block;
   text-align: center;
 }
@@ -367,12 +463,12 @@ NOTRE EQUIPE
 .diary h2 {
   background-color: #e6aa02;
   width: 100%;
-  font-size: 30px;
+  font-size: 3rem;
 }
 
 .diary img {
   display: flex;
-  width: 50px;
+  width: 5rem;
 }
 
 .diary {
@@ -393,22 +489,19 @@ NOTRE EQUIPE
   width: 70%;
   justify-content: flex-end;
   align-items: center;
-  background-color: #FF4475;
-  border-radius: 15px;
   padding: 20px;
 }
 
 .diary h3 {
   color: #000000;
-  font-size: 30px;
+  font-size: 3rem;
 }
 
 .agenda ul {
   font-size: large;
   color: #000000;
-  background-color: #ffffff;
-  width: 200px;
-  text-align: left;
+  width: 30rem;
+  text-align: center;
 }
 
 .agenda p {
@@ -416,21 +509,25 @@ NOTRE EQUIPE
 }
 
 .dates {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 10px;
+  width: 6rem;
+  height: 6rem;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   background-color: #000000;
-  border-radius: 20px;
+  border-radius: 1rem;
   border: 4mm ridge;
 }
 
 .date {
   display: flex;
   flex-direction: row;
-  border-radius: 20px;
+  border-radius: 1rem;
+  border: solid;
+  background-color: #FF4475;
+  border-radius: 1rem;
 }
 
 .date p {
@@ -440,13 +537,31 @@ NOTRE EQUIPE
 }
 
 .comment {
-  margin-top: 25px;
-  margin-left: 20px;
+  margin-top: 1rem;
+  margin-left: 1rem;
 }
 
-/*************PHOTO****************/
+/*************ADMIN****************/
+.date input {
+  background-color: blue;
+  height: 1rem;
+  width: 4rem;
+}
+
 .commandes {
-  height: 500px;
+  height: auto;
+}
+
+.commande img {
+  width: 5rem;
+}
+
+.commande td {
+  width: 20rem;
+}
+
+.commande input {
+  border: solid;
 }
 
 /*************GENERAL******************/
@@ -500,42 +615,68 @@ main {
   height: auto;
 }
 
-.haloween img {
-  width: 20%;
+input {
+  border: solid;
 }
 
-.haloween p {
-  text-align: center;
-  width: 200px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.haloween {
+/*************CONTACT****************/
+article {
   display: flex;
-  align-items: center;
-  background: #ffffff;
-  opacity: 0.8;
-  border-radius: 20px;
+  justify-content: center;
+  height: auto;
 }
 
-.noel img {
-  width: 20%;
+#contact {
+  margin-left: 20%;
 }
 
-.noel p {
-  text-align: center;
-  width: 200px;
-  padding-left: 10px;
-  padding-right: 10px;
+.form {
+  display: block;
+  margin: 50px;
+  height: auto;
+  width: 100%;
 }
 
-.noel {
-  display: flex;
-  align-items: center;
-  background: #ffffff;
-  opacity: 0.8;
-  border-radius: 20px;
+select {
+  width: 95%;
+}
+
+.form input {
+  width: 70%;
+  text-align: right;
+  border-radius: 0.5em;
+  border: #ccc;
+  Padding: 0.5em 1em;
+  font-size: 1.6rem;
+  color: #333;
+  color: #000000;
+  border: solid;
+}
+
+label {
+  width: 30%;
+  Padding: 0.5em;
+  margin-right: 200px;
+  color: #000000;
+}
+
+textarea {
+  width: 95%;
+}
+
+fieldset {
+  margin-bottom: 2em;
+  margin-top: 2em;
+  Padding: 1em;
+  font-size: 1.6rem;
+  border: rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  width: 500px;
+}
+
+.legende {
+  Padding: 1em;
+  font-size: 1.8rem;
 }
 
 /*# sourceMappingURL=styles.css.map */

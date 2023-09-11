@@ -6,28 +6,47 @@
 - Couleur des ancres vers les sections : blanc
 - Espacer les hyperliens*/
 
+.navbar-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.navbar-toggle {
+    display: block;
+}
+
+.menu-open {
+    display: block;
+}
+
 header {
     background-image: url("../images/199490002_l_normal_none-removebg-preview.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     display: block;
-    height: 300px;
+    height: 20rem;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
-    padding-top: 100px;
-
+    padding-top: 5rem;
 
 }
 
 .header {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 130px;
+    height: 20rem;
     background: #ffffff;
     opacity: 0.8;
     border-radius: 20px;
@@ -119,4 +138,87 @@ a {
     transition-duration: 0.2s;
 
 
+}
+
+/**************MENU BURGER**************/
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+.navbar-logo {
+    font-size: 24px;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: none;
+}
+
+.navbar-menu li {
+    margin: 10px 0;
+}
+
+.navbar-menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 3px 0;
+    background-color: white;
+}
+
+
+
+
+
+@media screen and (min-width:1200px) {
+    body {
+        margin: 16px auto;
+        max-width: 1168px;
+        /* 1200 - 16*2 */
+    }
+}
+
+/* valable pour tous les écrans */
+
+p {
+    line-height: 1.5;
+    color: #06F;
+}
+
+/* valable pour tous les écrans supérieures à 640px */
+
+@media screen and (min-width:640px) {
+    p {
+        column-count: 2;
+        /* ! column à utiliser pour des exemples simples */
+    }
+}
+
+/* valable pour tous les écrans supérieures à 960px */
+
+@media screen and (min-width:960px) {
+    p {
+        column-count: 3;
+    }
 }

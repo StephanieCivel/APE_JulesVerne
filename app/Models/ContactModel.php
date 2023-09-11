@@ -1,37 +1,30 @@
 <?php
-// On spécifie dans quel namespace se trouve ce modèle
 namespace App\Models;
-
-// on spécifie les namespaces requis dans notre code
 use App\Utility\DataBase;
-
+use \PDO;
 
 // Ce modèle est la représentation "code" de notre table posts
 // elle aura donc autant de propriétés qu'il y'a de champs dans la table
 // ça nous permettra de manipuler des objets identiques à une entrée de bdd grâce à PDO::FETCH_CLASS
-class UserModel
+class ContactModel
 {
     private $id;
     private $name;
     private $first_name;
     private $student_id;
     private $classroom;
-    private $tel;
     private $email;
-    private $password;
-    private $role;
+    private $message;
     private $rgpdChecked;
-    
 
-    // méthode pour enregistrer un user en bdd
-    public function registerUser(): bool
+    // méthode pour enregistrer un Contact en bdd
+    public function contact(): bool
     {
 
-        // connexion pdo
         $pdo = DataBase::connectPDO();
 
         // création requête avec liaison de param pour éviter les injections sq
-        $sql = "INSERT INTO `contact`(`name`, `first_name`, `student_id`, `classroom`, `tel`, `email`, `password`,`rgpdChecked`, `role`) VALUES (:name,:first_name,:student_id,:classroom,:tel,:email,:password,:rgpdChecked,:role)";
+        $sql = "INSERT INTO `contact`(`name`, `first_name`, `student_id`, `classroom`, `email`,`message`,`rgpdChecked`) VALUES (:name,:first_name,:student_id,:classroom,:email,:message,:rgpdChecked)";
         // préparation de la requête
         $pdoStatement = $pdo->prepare($sql);
         // liaison des params avec leur valeurs. tableau à passer dans execute
@@ -40,63 +33,19 @@ class UserModel
             ':first_name' =>  $this-> first_name,
             ':student_id' =>  $this-> student_id,
             ':classroom' =>  $this-> classroom,
-            ':tel' =>  $this-> tel,
             ':email' => $this->email,
-            ':password' => $this->password,
+            ':message' => $this->message,
             ':rgpdChecked' => $this ->rgpdChecked,
-            // par défaut on force le role à 2 qui est le plus faible
-            ':role' => 2,
+            
         ];
         // récupération de l'état de la requête (renvoie true ou false)
         $queryStatus = $pdoStatement->execute($params);
-
+        var_dump($queryStatus);
         // on retourne le status
         return $queryStatus;
+        
     }
-
-    // méthode pour vérifier si un email est déjà pris
-    public function checkEmail()
-    {
-        // connexion pdo
-        $pdo = DataBase::connectPDO();
-
-        // création requête avec liaison de param pour éviter les injections sq
-        $sql = "SELECT COUNT(*) FROM `users` WHERE `email` = :email";
-        // préparation de la requête
-        $query = $pdo->prepare($sql);
-        // pas besoin de faire un tableau, il n'ya qu'un seule entrée, on peut utiliser bindParam        
-        $query->bindParam(':email', $this->email);
-        // execution de la requete
-        $query->execute();
-        // on stock le retour. fetchColumn renvoie le nombre d'éléments trouvé
-        $isMail = $query->fetchColumn();
-
-        // donc l'instruction $isMail > 0 donnera true s'il y'a déjà l'email présent
-        return $isMail > 0;
-    }
-
-    // récupérer un utilisateur via son email
-    public static function getUserByEmail($email): ?UserModel
-    {
-
-        // connexion pdo
-        $pdo = DataBase::connectPDO();
-
-        // requête SQL
-        $sql = '
-        SELECT * 
-        FROM users
-        WHERE email = :email';
-        $pdoStatement = $pdo->prepare($sql);
-        // on exécute la requête en donnant à PDO la valeur à utiliser pour remplacer ':email'
-        $pdoStatement->execute([':email' => $email]);
-        // on récupère le résultat sous la forme d'un objet de la classe AppUser
-        $result = $pdoStatement->fetchObject('App\Models\UserModel');
-
-        // on renvoie le résultat
-        return $result;
-    }
-     /**
+    /**
      * Get the value of id
      */
     public function getId(): int
@@ -194,20 +143,6 @@ class UserModel
         return $this->classroom;
     }
     
-     /**
-     *  Get the value of Tel
-     */
-    public function getTel() {
-        return $this->tel;
-    }
-    
-     /**
-     * Set the value of Tel
-     */
-    public function setTel($tel) {
-        $this->tel = $tel;
-    }
-    
     /**
      *  Get the value of Email
      */
@@ -223,17 +158,17 @@ class UserModel
     }
     
      /**
-     *  Get the value of Password
+     *  Get the value of Message
      */
-    public function getPassword() {
-        return $this->password;
+    public function getMessage() {
+        return $this->message;
     }
     
      /**
-     * Set the value of Password
+     * Set the value of Message
      */
-    public function setPassword($password) {
-        $this->password = $password;
+    public function setMessage($message) {
+        $this->message = $message;
     }
     
      /**
@@ -242,19 +177,4 @@ class UserModel
     public function getRgpdChecked($rgpdChecked) {
         $this->rgpdChecked = $rgpdChecked;
     }
-    
-    /**
-     * Set the value of Role
-     */
-    public function setRgpdChecked($role) {
-        $this->password = $role;
-    }
-    
-     /**
-     *  Get the value of RgpdChecked
-     */
-    public function getRgpdChecked($role) {
-        $this->role = $role;
-    }
-    
 }

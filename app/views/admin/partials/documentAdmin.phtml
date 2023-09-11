@@ -1,0 +1,43 @@
+<main>
+    <div class="documentAdmin">
+        <h2>Administrateur</h2>
+        <h3>Nos Assemblées Générales</h3>
+            <div class="agAdmin">
+                <form action="" method="post">
+                    <fieldset>
+                        <select name='type'>
+                            <option value='ag'>AG</option>
+                            <option value='divers'>Divers</option>
+                        </select>
+                        <input type="file" name="url"><br>
+                        <input class="btn-submit" name="addDocumentForm" type="submit" value="Valider">
+                    </fieldset>
+                </form>
+            </div>
+    </div>
+            
+        
+    <h3>les résumés de nos diférentes réunions</h3>
+    <div class="documents">
+        <?php if(isset($data) && !empty($data)): ?>
+        <div>
+        <h2>Les Assemblées générales</h2>
+           <?php  foreach ($data['documents'] as $document): ?>
+             <?php  if($document->getType() === 'ag'): ?>
+                <a download href="<?= $document->getUrl(); ?>"><?= $document->getUrl(); ?></a>
+              <?php endif;?>
+            <?php endforeach; ?>
+            </div>
+            <div>
+        <h2>Les documents divers</h2>
+           <?php  foreach ($data['documents'] as $document): ?>
+             <?php  if($document->getType() === 'divers'): ?>
+                <a href="<?= $document->getUrl(); ?>"><?= $document->getUrl(); ?></a>
+              <?php endif;?>
+            <?php endforeach; ?>
+            
+        <?php endif; ?>
+
+         </div>
+    </div>
+</main>
