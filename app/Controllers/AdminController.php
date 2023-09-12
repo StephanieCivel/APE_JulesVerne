@@ -37,7 +37,7 @@ class AdminController extends MainController
             // si subPage existe, on modifie la propriété viewType du controller parent
             $this->view = $this->subPage;
             // si la view demandée === update
-            if ($this->view === 'update') {
+            if ($this->view === 'eventEdit') {
                 // On doit récupérer l'id de l'article à mettre à jour
                 if (isset($_GET['id'])) {
                     // on récupère l'article via son id grâce à la méthode statique getPostById                    
@@ -77,11 +77,12 @@ class AdminController extends MainController
         // On créé une nouvelle instance de PostModel
         $eventModel = new EventModel();
         // puis on utilise les setters pour ajouter les valeurs au propriétés privée du postModel
-        $eventModel->setTitle($date);
-        $eventModel->setContent($name);
-        $eventModel->setImg($adress);
-        $eventModel->setDate($description);
-        $eventModel->setDate($voluntary_link);
+        $eventModel->setId($id);
+        $eventModel->setDate($date);
+        $eventModel->setName($name);
+        $eventModel->setAdress($adress);
+        $eventModel->setDescription($description);
+        $eventModel->setVoluntary_link($voluntary_link);
 
         // on déclenche l'instertion d'article dans une conditions car PDO va renvoyer true ou false
         if ($eventModel->insertEvent()) {

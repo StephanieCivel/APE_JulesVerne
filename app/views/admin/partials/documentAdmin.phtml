@@ -27,6 +27,8 @@
                 <a download href="<?= $document->getUrl(); ?>"><?= $document->getUrl(); ?></a>
               <?php endif;?>
             <?php endforeach; ?>
+            <input class="btn-edit" name="addDocumentForm" type="edit" value="Modifier">
+            <input class="btn-delete" name="addDocumentForm" type="delete" value="Supprimer">
             </div>
             <div>
         <h2>Les documents divers</h2>
@@ -35,6 +37,9 @@
                 <a href="<?= $document->getUrl(); ?>"><?= $document->getUrl(); ?></a>
               <?php endif;?>
             <?php endforeach; ?>
+            <input class="btn-edit" name="addDocumentForm" type="edit" value="Modifier">
+            <input class="btn-delete" name="addDocumentForm" type="delete" value="Supprimer">
+            
             
         <?php endif; ?>
 

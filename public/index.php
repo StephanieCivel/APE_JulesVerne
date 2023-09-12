@@ -80,6 +80,11 @@ const AVAIABLE_ROUTES = [
         'action' => 'renderAdmin',
         'controller' => 'AdminController'
     ],
+     'eventEdit'=>[
+        'action' => 'renderAdmin',
+        'controller' => 'AdminController'
+    ],
+    
     '404'=>[
         'action' => 'render',
         'controller' => 'ErrorController'
@@ -121,7 +126,7 @@ $pageController->setView($page);
 
 // // On alimente la propriété subPage du controller avec le nom de la sous-page demandée. S'il n'y en à pas, elle vaudra simplement null
 
-// $pageController->setSubPage($subPage);
+$pageController->setSubPage($subPage);
 
 // On appelle la méthode du controller demandée
 $pageController->$controllerAction();
