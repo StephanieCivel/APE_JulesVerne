@@ -3,21 +3,21 @@
         <h2>Administrateur</h2>
         <h3>Agenda des évènements</h3>
         <div class="agendaAdmin">
-            <form action="#" method="post">
+            <form action="" method="post">
                 <fieldset>
+                    <input type="hidden" name="eventid" value='<?= $data['event']->getId(); ?>'><br>
                     <legend>Évènements</legend>
                     <label>Date</label><br>
-                    <input type="text" name="date"><br>
+                    <input type="text" name="date" value='<?= $data['event']->getDate(); ?>'><br>
                     <label>Nom</label><br>
-                    <input type="text" name="name"><br>
+                    <input type="text" name="name" value='<?= $data['event']->getName(); ?>'><br>
                     <label>Adresse</label><br>
-                    <input type="text" name="adress"><br>
+                    <input type="text" name="adress" value='<?= $data['event']->getAdress(); ?>'><br>
                     <label>Description</label><br>
-                    <textarea name="description" id="" cols="30" rows="5"></textarea><br>
+                    <textarea name="description" value='<?= $data['event']->getDescription(); ?>'id="" cols="30" rows="5"></textarea><br>
                     <label>Lien</label>
-                    <input type="text" name="voluntary_link"><br>
-                    <input class="btn-submit" name= "addEventEdit" type="button" value="Valider">
-                    <input  class="btn-edit" name= "addEventEdit" type="button" value="Modifier">
+                    <input type="text" name="volontary_link" value='<?= $data['event']->getVolontary_link(); ?>'><br>
+                    <input class="btn-submit" name="editEvent" type="submit" value="Valider">
                 </fieldset>
             </form>
         </div>

@@ -7,11 +7,11 @@
             } ?>
         </div>
         <form class="user" action="" method="post">
-            <div class="form-group">
-                <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Entrer adresse mail...">
+            <div class="form-user">
+                <input type="email" name="email" class="form" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Entrer adresse mail...">
             </div>
             <div class="form-group">
-                <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Mot de passe">
+                <input type="password" name="password" class="form" id="exampleInputPassword" placeholder="Mot de passe">
             </div>
             <div class="form-group">
                 <div class="custom-control custom-checkbox small">
@@ -27,8 +27,7 @@
                 <a class="small" href="forgot-password.html">Mot de passe oublier</a>
             </div>
             <div class="text-center">
-                
-                <a class="small" href="?page=register">Créer un compte</a>
+                <a href="<?=$base_uri[0] ?>/public/admin/register/">Créer un compte</a>
             </div>
             
         </div>

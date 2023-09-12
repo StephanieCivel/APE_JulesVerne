@@ -48,6 +48,10 @@ const AVAIABLE_ROUTES = [
         'action' => 'renderOrderAdmin',
         'controller' => 'OrderAdminController'
     ],
+    'orderEdit'=>[
+        'action' => 'renderOrder',
+        'controller' => 'OrderController'
+    ],
     'accountIdentifier'=>[
         'action' => 'render',
         'controller' => 'MainController'
@@ -81,6 +85,10 @@ const AVAIABLE_ROUTES = [
         'controller' => 'AdminController'
     ],
      'eventEdit'=>[
+        'action' => 'renderAdmin',
+        'controller' => 'AdminController'
+    ],
+     'eventAdd'=>[
         'action' => 'renderAdmin',
         'controller' => 'AdminController'
     ],

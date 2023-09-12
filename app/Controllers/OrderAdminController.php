@@ -38,7 +38,7 @@ class OrderAdminController extends MainController
             // si subPage existe, on modifie la propriété viewType du controller parent
             $this->view = $this->subPage;
             // si la view demandée === update
-            if ($this->view === 'update') {
+            if ($this->view === 'orderEdit') {
                 // On doit récupérer l'id de l'article à mettre à jour
                 if (isset($_GET['id'])) {
                     // on récupère l'article via son id grâce à la méthode statique getPostById                    
@@ -64,7 +64,7 @@ class OrderAdminController extends MainController
     }
 
     //méthode pour ajouter un article
-    public function addPost(): void
+    public function addProduct(): void
     {
 
          // filter_input est une fonction PHP
@@ -77,10 +77,10 @@ class OrderAdminController extends MainController
         // On créé une nouvelle instance de PostModel
         $productModel = new ProductModel();
         // puis on utilise les setters pour ajouter les valeurs au propriétés privée du postModel
-        $productModel->setContent($name);
-        $productModel->setTitle($description);
-        $productModel->setImg($price);
-        $productModel->setDate($img_id);
+        $productModel->setName($name);
+        $productModel->setDescription($description);
+        $productModel->setPrice($price);
+        $productModel->setId($img_id);
 
         // on déclenche l'instertion d'article dans une conditions car PDO va renvoyer true ou false
         if ($productModel->insertProduct()) {
@@ -102,19 +102,18 @@ class OrderAdminController extends MainController
     {
 
         $id = filter_input(INPUT_POST, 'eventid', FILTER_SANITIZE_NUMBER_INT);
-        $date = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_SPECIAL_CHARS);
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
-        $adress = filter_input(INPUT_POST, 'adress', FILTER_SANITIZE_SPECIAL_CHARS);
         $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
-        $voluntary_link = filter_input(INPUT_POST, 'voluntary_link', FILTER_SANITIZE_SPECIAL_CHARS);
+        $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_SPECIAL_CHARS);
+        $img_id = filter_input(INPUT_POST, 'img_id', FILTER_SANITIZE_SPECIAL_CHARS);
         
 
         $productModel = new ProductModel();
         $productModel->setId($id);
-        $productModel->setContent($name);
-        $productModel->setTitle($description);
-        $productModel->setImg($price);
-        $productModel->setDate($img_id);
+       $productModel->setName($name);
+        $productModel->setDescription($description);
+        $productModel->setPrice($price);
+        $productModel->setId($img_id);
        
  
         if ($productModel->updateProduct()) {
@@ -130,7 +129,7 @@ class OrderAdminController extends MainController
         // récupération et filtrage du champs 
         $productId = filter_input(INPUT_POST, 'productid', FILTER_SANITIZE_SPECIAL_CHARS);
 
-        if (ProductModel::deleteEvent($producId)) {
+        if (ProductModel::deleteProduct($producId)) {
             $this->data['infos'] = '<div class="alert alert-success d-inline-block mx-4" role="alert">Article supprimé avec succès</div>';
         } else {
             $this->data['infos'] = '<div class="alert alert-danger" role="alert">Il s\'est produit une erreur</div>';

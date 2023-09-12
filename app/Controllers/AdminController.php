@@ -14,9 +14,9 @@ class AdminController extends MainController
         // s'il ya un formulaire d'envoyé
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // et si le formulaire est addPostForm
-            if (isset($_POST["addPostForm"])) {
+            if (isset($_POST["addEvent"])) {
                 //  on lance la méthode d'ajout d'article
-                $this->addPost();
+                $this->addEvent();
             }
             // si le formulaire est deletePostForm
             if (isset($_POST['deletePostForm'])) {
@@ -24,9 +24,9 @@ class AdminController extends MainController
                 $this->removePost();
             }
             // si le formulaire est updatePostForm
-            if (isset($_POST['updatePostForm'])) {
+            if (isset($_POST['editEvent'])) {
                 //  on lance la méthode de mise à jour d'article
-                $this->updatePost();
+                $this->updateEvent();
             }
         }
 
@@ -41,14 +41,14 @@ class AdminController extends MainController
                 // On doit récupérer l'id de l'article à mettre à jour
                 if (isset($_GET['id'])) {
                     // on récupère l'article via son id grâce à la méthode statique getPostById                    
-                    $post = EventModel::getPostById($_GET['id']);
+                    $event = EventModel::getPostById($_GET['id']);
                     // Si l'article la méthode est l'inverse de true
-                    if (!$post) {
+                    if (!$event) {
                         // on stocke un message d'erreur dans la propriété data du controller parent
                         $this->data['error'] = '<div class="alert alert-danger" role="alert">L\'article n\'existe pas</div>';
                     } else {
-                        //sinon on sotcke dans la propriété data du controller parent l'article récupéré
-                        $this->data['post'] = $post;
+                        //sinon on stocke dans la propriété data du controller parent l'article récupéré
+                        $this->data['event'] = $event;
                     }
                 }
                 // 
@@ -63,7 +63,7 @@ class AdminController extends MainController
     }
 
     //méthode pour ajouter un article
-    public function addPost(): void
+    public function addEvent(): void
     {
 
          // filter_input est une fonction PHP
@@ -72,17 +72,16 @@ class AdminController extends MainController
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
         $adress = filter_input(INPUT_POST, 'adress', FILTER_SANITIZE_SPECIAL_CHARS);
         $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
-        $voluntary_link = filter_input(INPUT_POST, 'voluntary_link', FILTER_SANITIZE_SPECIAL_CHARS);
+        $voluntary_link = filter_input(INPUT_POST, 'volontary_link', FILTER_SANITIZE_SPECIAL_CHARS);
 
         // On créé une nouvelle instance de PostModel
         $eventModel = new EventModel();
         // puis on utilise les setters pour ajouter les valeurs au propriétés privée du postModel
-        $eventModel->setId($id);
         $eventModel->setDate($date);
         $eventModel->setName($name);
         $eventModel->setAdress($adress);
         $eventModel->setDescription($description);
-        $eventModel->setVoluntary_link($voluntary_link);
+        $eventModel->setVolontary_link($voluntary_link);
 
         // on déclenche l'instertion d'article dans une conditions car PDO va renvoyer true ou false
         if ($eventModel->insertEvent()) {
@@ -108,16 +107,16 @@ class AdminController extends MainController
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
         $adress = filter_input(INPUT_POST, 'adress', FILTER_SANITIZE_SPECIAL_CHARS);
         $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
-        $voluntary_link = filter_input(INPUT_POST, 'voluntary_link', FILTER_SANITIZE_SPECIAL_CHARS);
+        $voluntary_link = filter_input(INPUT_POST, 'volontary_link', FILTER_SANITIZE_SPECIAL_CHARS);
         
 
         $eventModel = new EventModel();
         $eventModel->setId($id);
         $eventModel->setDate($date);
-        $eventModel->setTitle($name);
-        $eventModel->setContent($adress);
-        $eventModel->setImg($description);
-        $eventModel->setDate($voluntary_link);
+        $eventModel->setName($name);
+        $eventModel->setAdress($adress);
+        $eventModel->setDescription($description);
+        $eventModel->setVolontary_link($voluntary_link);
        
  
         if ($eventModel->updateEvent()) {

@@ -1,3 +1,8 @@
+<?php 
+
+var_dump($base_uri);
+
+?>
 <main>
     <div class="documentAdmin">
         <h2>Administrateur</h2>
@@ -24,10 +29,10 @@
         <h2>Les Assemblées générales</h2>
            <?php  foreach ($data['documents'] as $document): ?>
              <?php  if($document->getType() === 'ag'): ?>
-                <a download href="<?= $document->getUrl(); ?>"><?= $document->getUrl(); ?></a>
+                <a download href="<?=$base_uri[0].'/public/assets/front/doc/'.$document->getUrl(); ?>"><?= $document->getUrl(); ?></a>
               <?php endif;?>
             <?php endforeach; ?>
-            <input class="btn-edit" name="addDocumentForm" type="edit" value="Modifier">
+            
             <input class="btn-delete" name="addDocumentForm" type="delete" value="Supprimer">
             </div>
             <div>
@@ -37,7 +42,7 @@
                 <a href="<?= $document->getUrl(); ?>"><?= $document->getUrl(); ?></a>
               <?php endif;?>
             <?php endforeach; ?>
-            <input class="btn-edit" name="addDocumentForm" type="edit" value="Modifier">
+            
             <input class="btn-delete" name="addDocumentForm" type="delete" value="Supprimer">
             
             

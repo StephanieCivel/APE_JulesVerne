@@ -28,8 +28,8 @@ class ProductModel{
         // on fetchAll avec l'option FETCH_CLASS afin d'obtenir un tableau d'objet de type PostModel. 
         // On pourra ensuite manipuler les propriétés grâce au getters / setters
         // ne pas oublier de spécifier le namespace App\Models\PostModel !
-        $products = $query->fetchAll(PDO::FETCH_CLASS, 'App\Models\ProductModel');
-        return $products;
+        $product = $query->fetchAll(PDO::FETCH_CLASS, 'App\Models\ProductModel');
+        return $product;
     }
 
     // récupération d'un article via son id
@@ -90,11 +90,12 @@ class ProductModel{
     {
         $pdo = DataBase::connectPDO();
         // récupération de l'id de l'utilisateur via la superglobale $_SESSION
-        $user_id = $_SESSION['userObject']->getId();
+        $product_id = $_SESSION['product']->getId();
         // requête sql protégée des injections sql 
-        $sql = "UPDATE `products` SET `name`= :name, `description` = description, `price` = price, `img_id` = img, id` = :id";
+        $sql = "UPDATE `products` SET `id` = :id, `name`= :name, `description` = :description, `price` = :price, `img_id` = :img, id` = :id";
         // associations des bonnes valeurs
         $params = [
+            'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
             'price' => $this->price,
@@ -177,7 +178,7 @@ class ProductModel{
     /**
      * Set the value of price
      */
-    public function setPrice(int $price): void
+    public function setPrice(string $price): void
     {
         $this->price = $price;
     }
@@ -185,7 +186,7 @@ class ProductModel{
      /**
      * Get the value of img
      */
-    public function getImgId(): int
+    public function getImgId(): string
     {
         return $this->img_id;
     }
@@ -195,7 +196,7 @@ class ProductModel{
     /**
      * Set the value of img
      */
-    public function setImg(int $img_id): void
+    public function setImg(string $img_id): void
     {
         $this->img_id = $img_id;
     }

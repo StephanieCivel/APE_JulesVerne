@@ -11,7 +11,7 @@ class EventModel{
     private $name;
     private $adress;
     private $description;
-    private $voluntary_link;
+    private $volontary_link;
    
  // méthode pour récupérer tous les articles, il est possible de spécifier une limite
     public static function getEvents(): array
@@ -21,7 +21,7 @@ class EventModel{
       
 
         // On prépare la requete
-        $query = $pdo->prepare('SELECT date, name, adress, description FROM event');
+        $query = $pdo->prepare('SELECT *  FROM event');
 
 
         $query->execute();
@@ -40,14 +40,15 @@ class EventModel{
         // connection pdo
         $pdo = DataBase::connectPDO();
         // impératif, :id permet d'éviter les injections SQL
-        $query = $pdo->prepare('SELECT * FROM posts WHERE id=:id');
+        $query = $pdo->prepare('SELECT * FROM event WHERE id=:id');
         // Comme il n'y a qu'un seul param, pas besoin de faire un tableau, on peut utiliser bindParam
         $query->bindParam(':id', $id);
         $query->execute();
         $query->setFetchMode(PDO::FETCH_CLASS, 'App\Models\EventModel');
         // fetch et non fetchAll car on récupère une seule entrée
-        $post = $query->fetch();
-        return $Event;
+        $event = $query->fetch();
+   
+        return $event;
     }
 
     // Si on souhaite éviter la duplication de code des méthodes insert et update qui son très similaires
@@ -68,10 +69,8 @@ class EventModel{
     public function insertEvent(): bool
     {
         $pdo = DataBase::connectPDO();
-        // récupération de l'id de l'utilisateur via la superglobale $_SESSION
-        $user_id = $_SESSION['userObject']->getId();
         // requête sql protégée des injections sql 
-        $sql = "INSERT INTO `event`(`date`, `name`, `adress`,`description`, `volontary_link`) VALUES (:date, :name, :adress, :description, :volontary_link)";
+        $sql = "INSERT INTO `event`(`date`, `name`, `adress`, `description`, `volontary_link`) VALUES (:date, :name, :adress, :description, :volontary_link)";
         // associations des bonnes valeurs
         $params = [
             'date' => $this->date,
@@ -79,7 +78,6 @@ class EventModel{
             'adress' => $this->adress,
             'description' => $this->description,
             'volontary_link' => $this->volontary_link,
-            
         ];
         $query = $pdo->prepare($sql);
         // execution de la méthode en passant le tableau de params
@@ -89,13 +87,13 @@ class EventModel{
 
     public function updateEvent(): bool
     {
+        var_dump('prgkzpoekg');
         $pdo = DataBase::connectPDO();
-        // récupération de l'id de l'utilisateur via la superglobale $_SESSION
-        $user_id = $_SESSION['userObject']->getId();
         // requête sql protégée des injections sql 
-        $sql = "UPDATE `events` SET `date` = :date, `name`= :name, `adress` = :adress,`description` = description, `volontary_link` = volontary_link, id` = :id";
+        $sql = "UPDATE `event` SET `date` = :date, `name`= :name, `adress` = :adress,`description` = :description, `volontary_link` = :volontary_link WHERE id = :id";
         // associations des bonnes valeurs
         $params = [
+            'id' => $this->id,
             'date' => $this->date,
             'name' => $this->name,
             'adress' => $this->adress,
@@ -108,12 +106,12 @@ class EventModel{
         return $queryStatus;
     }
 
-    public static function deleteEvent(int $postId): bool
+    public static function deleteEvent(int $eventId): bool
     {
         $pdo = DataBase::connectPDO();
-        $sql = 'DELETE FROM `posts` WHERE id = :id';
+        $sql = 'DELETE FROM `events` WHERE id = :id';
         $query = $pdo->prepare($sql);
-        $query->bindParam('id', $eventId, PDO::PARAM_INT);
+        $query->bindParam(':event_id', $event_id, PDO::PARAM_INT);
         $queryStatus = $query->execute();
         return $queryStatus;
     }
@@ -155,7 +153,7 @@ class EventModel{
     /**
      * Get the value of name
      */
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -189,7 +187,7 @@ class EventModel{
     /**
      * Get the value of description
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -205,17 +203,17 @@ class EventModel{
     /**
      * Get the value of voluntary_link
      */
-    public function getVoluntary_link(): int
+    public function getVolontary_link(): ?string
     {
-        return $this->voluntary_link;
+        return $this->volontary_link;
     }
 
     /**
      * Set the value of voluntary_link
      */
-    public function setVoluntary_link(int $voluntary_link): void
+    public function setVolontary_link(string $volontary_link): void
     {
-        $this->voluntary_link = $voluntary_link;
+        $this->volontary_link = $volontary_link;
     }
 }
 
