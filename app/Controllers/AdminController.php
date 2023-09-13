@@ -19,9 +19,10 @@ class AdminController extends MainController
                 $this->addEvent();
             }
             // si le formulaire est deletePostForm
-            if (isset($_POST['deletePostForm'])) {
-                //  on lance la méthode de suppression d'article
-                $this->removePost();
+            // Si le formulaire est deleteEvent
+        if (isset($_POST['deleteEvent'])) {
+            // On lance la méthode de suppression d'événement
+            $this->removeEvent();
             }
             // si le formulaire est updatePostForm
             if (isset($_POST['editEvent'])) {
@@ -29,6 +30,7 @@ class AdminController extends MainController
                 $this->updateEvent();
             }
         }
+       
 
         // La vue à rendre est admin. On la passe dans notre propriété viewType du controller parent
         $this->viewType = 'admin';
@@ -126,16 +128,20 @@ class AdminController extends MainController
         }
     }
 
-    // méthode de suppresion d'un article
-    public function removeEvent(): void
-    {
-        // récupération et filtrage du champs 
-        $eventId = filter_input(INPUT_POST, 'eventid', FILTER_SANITIZE_SPECIAL_CHARS);
+    // Méthode pour supprimer un événement
+public function removeEvent(): void
+{
+    // Récupération et filtrage de l'ID de l'événement à supprimer
+    $eventId = filter_input(INPUT_POST, 'eventid', FILTER_SANITIZE_SPECIAL_CHARS);
 
-        if (EventModel::deleteEvent($eventId)) {
-            $this->data['infos'] = '<div class="alert alert-success d-inline-block mx-4" role="alert">Article supprimé avec succès</div>';
-        } else {
-            $this->data['infos'] = '<div class="alert alert-danger" role="alert">Il s\'est produit une erreur</div>';
-        }
+    // Appel à la méthode de modèle pour supprimer l'événement
+    if (EventModel::deleteEvent($eventId)) {
+        // Suppression réussie, vous pouvez afficher un message de succès ou rediriger l'utilisateur
+        // vers une autre page si nécessaire.
+        $this->data['infos'] = '<div class="alert alert-success" role="alert">Événement supprimé avec succès</div>';
+    } else {
+        // Erreur lors de la suppression
+        $this->data['infos'] = '<div class="alert alert-danger" role="alert">Une erreur s\'est produite lors de la suppression</div>';
     }
+}
 }

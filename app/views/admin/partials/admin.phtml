@@ -17,9 +17,12 @@
                         <p><?= $event->getAdress()?></p>
                         <p><?= $event->getdescription()?></p>
                     </div>
-                    <a class="btn-edit" href="<?=$base_uri[0] ?>/public/admin/deleteEvent.php?event_id=<?= $event->getId(); ?>" name="deletePostForm">Supprimer</a>
+                    <form action="" method="post">
+                        <input type="hidden" name="eventid" value="<?= $event->getId(); ?>">
+                        <input class="btn-delete" name="deleteEvent" type="submit" value="Supprimer"/>
+                    </form>
                     <a class="btn-edit" href="<?=$base_uri[0] ?>/public/admin/eventEdit/<?= $event->getId(); ?>" name="eventid">Modifier</a>
-                   
+                    
             </div>
                <?php endforeach;?>
                <?php endif; ?>

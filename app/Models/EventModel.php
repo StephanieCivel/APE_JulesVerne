@@ -90,7 +90,7 @@ class EventModel{
         var_dump('prgkzpoekg');
         $pdo = DataBase::connectPDO();
         // requête sql protégée des injections sql 
-        $sql = "UPDATE `event` SET `date` = :date, `name`= :name, `adress` = :adress,`description` = :description, `volontary_link` = :volontary_link WHERE id = :id";
+        $sql = "UPDATE `event` SET `date` = :date, `name` = :name, `adress` = :adress,`description` = :description, `volontary_link` = :volontary_link WHERE `id` = :id";
         // associations des bonnes valeurs
         $params = [
             'id' => $this->id,
@@ -109,9 +109,9 @@ class EventModel{
     public static function deleteEvent(int $eventId): bool
     {
         $pdo = DataBase::connectPDO();
-        $sql = 'DELETE FROM `events` WHERE id = :id';
+        $sql = 'DELETE FROM `event` WHERE id = :id';
         $query = $pdo->prepare($sql);
-        $query->bindParam(':event_id', $event_id, PDO::PARAM_INT);
+        $query->bindParam('id', $eventId, PDO::PARAM_INT);
         $queryStatus = $query->execute();
         return $queryStatus;
     }
@@ -216,6 +216,3 @@ class EventModel{
         $this->volontary_link = $volontary_link;
     }
 }
-
-
-
