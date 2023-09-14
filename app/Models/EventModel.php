@@ -21,7 +21,7 @@ class EventModel{
       
 
         // On prépare la requete
-        $query = $pdo->prepare('SELECT *  FROM event');
+        $query = $pdo->prepare('SELECT *  FROM event ORDER BY date ASC');
 
 
         $query->execute();

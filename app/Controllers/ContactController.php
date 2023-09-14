@@ -22,10 +22,9 @@ public function contact()
         $classroom = filter_input(INPUT_POST, 'classroom',FILTER_SANITIZE_SPECIAL_CHARS);
         $email = filter_input(INPUT_POST, 'email',FILTER_SANITIZE_EMAIL);
         $message = filter_input(INPUT_POST, 'message',FILTER_SANITIZE_SPECIAL_CHARS);
-        $rgpdChecked = filter_input(INPUT_POST, 'rgpdChecked', FILTER_SANITIZE_SPECIAL_CHARS);
         
         // Si un champs vaut false, on ajoute une erreur dans le tableau errors
-        if (!$name || !$first_name || !$student_id || !$classroom || !$email || !$message || !$rgpdChecked)  {
+        if (!$name || !$first_name || !$student_id || !$classroom || !$email || !$message)  {
             $errors = 1;
             $this->data[] = '<div class="alert alert-danger" role="alert">Tous les champs sont obligatoires</div>';
         }
@@ -48,8 +47,7 @@ public function contact()
             $contact->setName($student_id);
             $contact->setName($classroom);
             $contact->setEmail($email);
-            $contact->setMessage($message); 
-            $contact->setRgpdChecked($rgpdChecked);
+            $contact->setMessage($message);
             }
             if(empty($errors)){
                 if($contact->Contact()){                   

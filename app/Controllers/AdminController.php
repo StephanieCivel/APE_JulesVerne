@@ -9,6 +9,10 @@ class AdminController extends MainController
 {
     public function renderAdmin(): void
     {
+        var_dump($_SESSION);
+        // La vue à rendre est admin. On la passe dans notre propriété viewType du controller parent
+        $this->viewType = 'admin';
+        $this->authUser(1);
         // pour pouvoir accéder à l'admin, il faut avoir le role n°1. L-On lance donc la méthode pour checker le role du user connecté
         //$this->checkUserAuthorization(1);
         // s'il ya un formulaire d'envoyé
@@ -32,8 +36,7 @@ class AdminController extends MainController
         }
        
 
-        // La vue à rendre est admin. On la passe dans notre propriété viewType du controller parent
-        $this->viewType = 'admin';
+        
         // On vérifie si subPage existe
         if (isset($this->subPage)) {
             // si subPage existe, on modifie la propriété viewType du controller parent

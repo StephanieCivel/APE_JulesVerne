@@ -1,7 +1,7 @@
 <?php
 require __DIR__.'/../vendor/autoload.php';
 
-// session_start();
+session_start();
 // use App\Controllers\MainController;
 // require __DIR__.'/../app/Models/PostModel.php';
 // require __DIR__.'/../app/Controllers/MainController.php';
@@ -90,7 +90,11 @@ const AVAIABLE_ROUTES = [
     ],
     
     '404'=>[
-        'action' => 'render',
+        'action' => 'renderError',
+        'controller' => 'ErrorController'
+    ],
+        '403'=>[
+        'action' => 'renderError',
         'controller' => 'ErrorController'
     ],
  ];

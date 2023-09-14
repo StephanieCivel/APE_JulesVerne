@@ -85,6 +85,9 @@ class UserModel
         $result = $pdoStatement->fetchObject('App\Models\UserModel');
 
         // on renvoie le résultat
+        if(!$result){
+            $result = null;
+        }
         return $result;
     }
     /**

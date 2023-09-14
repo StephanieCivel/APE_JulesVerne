@@ -15,7 +15,7 @@ class ContactModel
     private $classroom;
     private $email;
     private $message;
-    private $rgpdChecked;
+   
 
     // méthode pour enregistrer un Contact en bdd
     public function contact(): bool
@@ -35,7 +35,6 @@ class ContactModel
             ':classroom' =>  $this-> classroom,
             ':email' => $this->email,
             ':message' => $this->message,
-            ':rgpdChecked' => $this ->rgpdChecked,
             
         ];
         // récupération de l'état de la requête (renvoie true ou false)
@@ -45,6 +44,18 @@ class ContactModel
         return $queryStatus;
         
     }
+    
+    public function getMessages(){
+    $pdo = DataBase::connectPDO();
+    
+    $sql = "SELECT * FROM contact";
+
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $messages = $query->fetchAll(PDO::FETCH_CLASS,'App\Models\ContactModel');
+        return $messages;
+}
+
     /**
      * Get the value of id
      */
@@ -64,7 +75,7 @@ class ContactModel
      /**
      * Get the value of name
      */
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -87,6 +98,7 @@ class ContactModel
         return $this->firstName;
     }
 
+    
     /**
      * Set the value of firstName
      */
@@ -95,21 +107,7 @@ class ContactModel
         $this->firstName = $firstName;
     }
     
-    /**
-     * Get the value of student
-     */
-    public function getStudentName(): int
-    {
-        return $this->student_id;
-    }
-
-    /**
-     * Set the value of student
-     */
-    public function setStudentName(int $student_id): void
-    {
-        $this->student_id = $student_id;
-    }
+   
     
          /**
      * Get the value of student
@@ -118,63 +116,62 @@ class ContactModel
     {
         return $this->student_name;
     }
-    
-    /**
-     * Get the value of student
-     */
-    public function getClassroom(): int
-    {
-        return $this->classroom;
-    }
 
     /**
      * Set the value of student
      */
-    public function setClassroom(int $classroom): void
+    public function setStudentName(string $student_id): void
     {
-        $this->classroom = $classroom;
+        $this->student_id = $student_id;
     }
     
-         /**
-     * Get the value of student
+    
+    
+    /**
+     * Get the value of classroom
      */
     public function getClassroom(): string
     {
         return $this->classroom;
     }
+
+    /**
+     * Set the value of classroom
+     */
+    public function setClassroom(string $classroom): void
+    {
+        $this->classroom = $classroom;
+    }
     
+   
     /**
      *  Get the value of Email
      */
-    public function getEmail() {
+    public function getEmail(): string
+    {
         return $this->email;
     }
     
      /**
      * Set the value of Email
      */
-    public function setEmail($email) {
+    public function setEmail(string $email) {
         $this->email = $email;
     }
     
      /**
      *  Get the value of Message
      */
-    public function getMessage() {
+    public function getMessage(): string
+    {
         return $this->message;
     }
     
      /**
      * Set the value of Message
      */
-    public function setMessage($message) {
+    public function setMessage(string $message) {
         $this->message = $message;
     }
     
-     /**
-     *  Get the value of RgpdChecked
-     */
-    public function getRgpdChecked($rgpdChecked) {
-        $this->rgpdChecked = $rgpdChecked;
-    }
 }
