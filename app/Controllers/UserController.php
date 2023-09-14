@@ -41,9 +41,10 @@ class UserController extends MainController
         $email = filter_input(INPUT_POST, 'email');
         $password = filter_input(INPUT_POST, 'password');
         $name = filter_input(INPUT_POST, 'name');
+        $firstName = filter_input(INPUT_POST, 'firstName');
 
         // si les champs sont différents de true,
-        if (!$email || !$password || !$name) {
+        if (!$email || !$password || !$name || !$firstName) {
             // c'est qu'il y'a une erreur
             $errors = 1;
             // on stocke dans la propriété data le message d'erreur que l'on va afficher dans la vue ensuite
@@ -79,6 +80,7 @@ class UserController extends MainController
             $user->setEmail($email);
             $user->setPassword($hashedPassword);
             $user->setName($name);
+            $user->setFirstName($firstName);
             $user->setRole(2);
 
             // on vérifie si un utilisateur avec le même email existe 
@@ -111,6 +113,7 @@ class UserController extends MainController
         $user = new UserModel();
         // on récupère l'utilisateur via son email
         $user = $user->getUserByEmail($_POST['email']);
+        
 
         // si user renvoie false
         if ($user === false) {
@@ -121,7 +124,7 @@ class UserController extends MainController
             if (password_verify($_POST['password'], $user->getPassword())) {
                 // si c'est le cas, on stocke notre objet user dans la session
                 $_SESSION['user_id'] = $user->getId();
-                $_SESSION['user_role'] = $user->getRole();                
+                $_SESSION['user_role'] = $user->getRole();      
                 // on stocke un message dans la propriété data pour l'afficher dans la vue
                 $this->data[] =  '<div class="alert alert-success" role="alert">connexion réussie ! votre compte doit être modifié par un admin pour que vous ayez accès à l\'administration</div>';
 

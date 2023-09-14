@@ -52,23 +52,19 @@ const AVAIABLE_ROUTES = [
         'action' => 'renderOrder',
         'controller' => 'OrderController'
     ],
-    'accountIdentifier'=>[
-        'action' => 'render',
-        'controller' => 'MainController'
-    ],
     'account'=>[
         'action' => 'renderAccount',
         'controller' => 'AccountController'
     ],
-    'basket'=>[
-        'action' => 'render',
-        'controller' => 'MainController'
-    ],
+    // 'basket'=>[
+    //     'action' => 'render',
+    //     'controller' => 'MainController'
+    // ],
     'post'=>[
         'action' => 'renderPost',
         'controller' => 'PostController'
     ],
-     'login'=>[
+    'login'=>[
         'action' => 'renderUser',
         'controller' => 'UserController'
     ],

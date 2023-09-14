@@ -26,28 +26,29 @@ var_dump($base_uri);
     <div class="documents">
         <?php if(isset($data) && !empty($data)): ?>
         <div>
-        <h2>Les Assemblées générales</h2>
-           <?php  foreach ($data['documents'] as $document): ?>
-             <?php  if($document->getType() === 'ag'): ?>
-                <a download href="<?=$base_uri[0].'/public/assets/front/doc/'.$document->getUrl(); ?>"><?= $document->getUrl(); ?></a>
-              <?php endif;?>
+            <h2>Les Assemblées générales</h2>
+            <?php  foreach ($data['documents'] as $document): ?>
+            <?php  if($document->getType() === 'ag'): ?>
+            <a download href="<?=$base_uri[0].'/public/assets/front/doc/'.$document->getUrl(); ?>"><?= $document->getUrl(); ?></a>
+                <form action="" method="post">
+                    <input type="hidden" name="documentid" value="<?= $document->getId(); ?>">
+                    <input class="btn-delete" name="deleteDocument" type="submit" value="Supprimer"/>
+                </form>
+            <?php endif;?>
             <?php endforeach; ?>
-            
-            <input class="btn-delete" name="addDocumentForm" type="delete" value="Supprimer">
-            </div>
-            <div>
-        <h2>Les documents divers</h2>
-           <?php  foreach ($data['documents'] as $document): ?>
-             <?php  if($document->getType() === 'divers'): ?>
-                <a href="<?= $document->getUrl(); ?>"><?= $document->getUrl(); ?></a>
-              <?php endif;?>
+        </div>
+        <div>
+            <h2>Les documents divers</h2>
+            <?php  foreach ($data['documents'] as $document): ?>
+            <?php  if($document->getType() === 'divers'): ?>
+            <a href="<?= $document->getUrl(); ?>"><?= $document->getUrl(); ?></a>
+                <form action="" method="post">
+                    <input type="hidden" name="documentid" value="<?= $document->getId(); ?>">
+                    <input class="btn-delete" name="deleteDocument" type="submit" value="Supprimer"/>
+                </form>
+            <?php endif;?>
             <?php endforeach; ?>
-            
-            <input class="btn-delete" name="addDocumentForm" type="delete" value="Supprimer">
-            
-            
         <?php endif; ?>
-
-         </div>
+        </div>
     </div>
 </main>

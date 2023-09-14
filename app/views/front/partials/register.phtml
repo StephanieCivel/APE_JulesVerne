@@ -1,34 +1,18 @@
- <article>
-        <div class="form">
-            <form action="#" method="post">
-                <fieldset>
-                    <legend>M'inscrire</legend>
-                    <label><abbr title="(required)" aria-hidden="true">*</abbr>Nom</label>
-                    <input type="text" name="nom"><br>
-                    <label><abbr title="(required)" aria-hidden="true">*</abbr>Prénom</label>
-                    <input type="text" name="firstName"><br>
-                    <label><abbr title="(required)" aria-hidden="true">*</abbr>Nom de votre enfant</label>
-                    <input type="text" name="student"><br>
-                    <label><abbr title="(required)" aria-hidden="true">*</abbr>Classe de votre enfant</label>
-                        <select name='type'>
-                            <option value='tps'>TPS</option>
-                            <option value='ps'>PS</option>
-                            <option value='ms'>MS</option>
-                            <option value='gs'>GS</option>
-                            <option value='cp'>CP</option>
-                            <option value='ce1'>CE1</option>
-                            <option value='ce2'>CE2</option>
-                            <option value='cm1'>CM1</option>
-                            <option value='cm2'>CM2</option>
-                        </select>
-                    <label>Email:</label>
-                    <input type="mail" name="email"><br>
-                    <label for="password"><abbr title="(required)" aria-hidden="true">*</abbr> Mot de passe </label>
-                    <input type="password" name="password" id="password" required>
-                    <input class="btn-submit"name='registerForm' type="submit" value="Valider">
-                </fieldset>
-            </form>
-        </div>
-
-    </article>
-
+<article>
+    <div class="form">
+        <form action="#" method="post">
+            <fieldset>
+                <legend>M'inscrire</legend>
+                <label for="name"><abbr title="(required)" aria-hidden="true">*</abbr>Nom :</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="firstName"><abbr title="(required)" aria-hidden="true">*</abbr>Prénom :</label>
+                <input type="text" id="firstName" name="firstName" required><br>
+                <label for="email"><abbr title="(required)" aria-hidden="true">*</abbr>Email :</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="password"><abbr title="(required)" aria-hidden="true">*</abbr>Mot de passe :</label>
+                <input type="password" id="password" name="password" required><br>
+                <input class="btn-submit" name="registerForm" type="submit" value="Valider">
+            </fieldset>
+        </form>
+    </div>
+</article>

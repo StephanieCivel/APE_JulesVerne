@@ -1,0 +1,27 @@
+<header class="masthead" style="background-image: url('<?= $base_uri[0]; ?>/public/assets/front/img/contact-bg.jpg')">
+    <h1>Connexion</h1>
+</header>
+<main class="container">
+    <div class="text-center">
+        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+        <?php if (isset($data)) {
+            foreach ($data as $value) {
+            echo $value;
+            }
+        } ?>
+    </div>
+    <form class="user" action="" method="post">
+        <div class="form-group">
+            <input type="email" name="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter votre adresse mail...">
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" id="exampleInputPassword" placeholder="mot de passe">
+        </div>
+            <input type="submit" name="loginForm" value="Login">
+    </form>
+    <hr>
+    <div class="text-center">
+        <a href="<?=$base_uri[0] ?>/public/register/">Créer un compte</a>
+    </div>
+</main>
+ 

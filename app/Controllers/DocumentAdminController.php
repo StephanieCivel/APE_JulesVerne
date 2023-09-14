@@ -21,9 +21,9 @@ class DocumentAdminController extends MainController
             
             }
             // si le formulaire est deletePostForm
-            if (isset($_POST['deletePostForm'])) {
+            if (isset($_POST['deleteDocument'])) {
                 //  on lance la méthode de suppression d'article
-                $this->removePost();
+                $this->removeDocument();
             }
             // si le formulaire est updatePostForm
             if (isset($_POST['updatePostForm'])) {
@@ -124,9 +124,9 @@ class DocumentAdminController extends MainController
     // méthode de suppresion d'un article
     public function removeDocument(): void
     {
-        // récupération et filtrage du champs 
+        // Récupération et filtrage de l'ID de l'événement à supprimer
         $documentId = filter_input(INPUT_POST, 'documentid', FILTER_SANITIZE_SPECIAL_CHARS);
-
+        // Appel à la méthode de modèle pour supprimer ledocument
         if (DocumentModel::deleteDocument($documentId)) {
             $this->data['infos'] = '<div class="alert alert-success d-inline-block mx-4" role="alert">Article supprimé avec succès</div>';
         } else {

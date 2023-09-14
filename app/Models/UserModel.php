@@ -13,15 +13,10 @@ class UserModel
 {
     private $id;
     private $name;
-    private $first_name;
-    private $student_id;
-    private $classroom;
-    private $tel;
+    private $firstName;
     private $email;
     private $password;
     private $role;
-    private $rgpdChecked;
-    
 
     // méthode pour enregistrer un user en bdd
     public function registerUser(): bool
@@ -31,19 +26,15 @@ class UserModel
         $pdo = DataBase::connectPDO();
 
         // création requête avec liaison de param pour éviter les injections sq
-        $sql = "INSERT INTO `contact`(`name`, `first_name`, `student_id`, `classroom`, `tel`, `email`, `password`,`rgpdChecked`, `role`) VALUES (:name,:first_name,:student_id,:classroom,:tel,:email,:password,:rgpdChecked,:role)";
+        $sql = "INSERT INTO `user`(`name`, `firstName`, `email`, `password`,`role`) VALUES (:name,:firstName,:email,:password,:role)";
         // préparation de la requête
         $pdoStatement = $pdo->prepare($sql);
         // liaison des params avec leur valeurs. tableau à passer dans execute
         $params = [
             ':name' => $this->name,
-            ':first_name' =>  $this-> first_name,
-            ':student_id' =>  $this-> student_id,
-            ':classroom' =>  $this-> classroom,
-            ':tel' =>  $this-> tel,
+            ':firstName' => $this->firstName,
             ':email' => $this->email,
             ':password' => $this->password,
-            ':rgpdChecked' => $this ->rgpdChecked,
             // par défaut on force le role à 2 qui est le plus faible
             ':role' => 2,
         ];
@@ -61,7 +52,7 @@ class UserModel
         $pdo = DataBase::connectPDO();
 
         // création requête avec liaison de param pour éviter les injections sq
-        $sql = "SELECT COUNT(*) FROM `users` WHERE `email` = :email";
+        $sql = "SELECT COUNT(*) FROM `user` WHERE `email` = :email";
         // préparation de la requête
         $query = $pdo->prepare($sql);
         // pas besoin de faire un tableau, il n'ya qu'un seule entrée, on peut utiliser bindParam        
@@ -85,7 +76,7 @@ class UserModel
         // requête SQL
         $sql = '
         SELECT * 
-        FROM users
+        FROM user
         WHERE email = :email';
         $pdoStatement = $pdo->prepare($sql);
         // on exécute la requête en donnant à PDO la valeur à utiliser pour remplacer ':email'
@@ -96,7 +87,7 @@ class UserModel
         // on renvoie le résultat
         return $result;
     }
-     /**
+    /**
      * Get the value of id
      */
     public function getId(): int
@@ -112,10 +103,10 @@ class UserModel
         $this->id = $id;
     }
 
-     /**
+    /**
      * Get the value of name
      */
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -127,10 +118,8 @@ class UserModel
     {
         $this->name = $name;
     }
-
-   
-
-    /**
+    
+     /**
      * Get the value of firstName
      */
     public function getFirstName(): string
@@ -145,116 +134,52 @@ class UserModel
     {
         $this->firstName = $firstName;
     }
-    
-    /**
-     * Get the value of student
-     */
-    public function getStudentName(): int
-    {
-        return $this->student_id;
-    }
 
     /**
-     * Set the value of student
+     * Get the value of email
      */
-    public function setStudentName(int $student_id): void
+    public function getEmail(): string
     {
-        $this->student_id = $student_id;
-    }
-    
-         /**
-     * Get the value of student
-     */
-    public function getStudentName(): string
-    {
-        return $this->student_name;
-    }
-    
-    /**
-     * Get the value of student
-     */
-    public function getClassroom(): int
-    {
-        return $this->classroom;
-    }
-
-    /**
-     * Set the value of student
-     */
-    public function setClassroom(int $classroom): void
-    {
-        $this->classroom = $classroom;
-    }
-    
-         /**
-     * Get the value of student
-     */
-    public function getClassroom(): string
-    {
-        return $this->classroom;
-    }
-    
-     /**
-     *  Get the value of Tel
-     */
-    public function getTel() {
-        return $this->tel;
-    }
-    
-     /**
-     * Set the value of Tel
-     */
-    public function setTel($tel) {
-        $this->tel = $tel;
-    }
-    
-    /**
-     *  Get the value of Email
-     */
-    public function getEmail() {
         return $this->email;
     }
-    
-     /**
-     * Set the value of Email
+
+    /**
+     * Set the value of email
      */
-    public function setEmail($email) {
+    public function setEmail(string $email): void
+    {
         $this->email = $email;
     }
-    
-     /**
-     *  Get the value of Password
+
+    /**
+     * Get the value of password
      */
-    public function getPassword() {
+    public function getPassword(): string
+    {
         return $this->password;
     }
-    
-     /**
-     * Set the value of Password
+
+    /**
+     * Set the value of password
      */
-    public function setPassword($password) {
+    public function setPassword(string $password): void
+    {
         $this->password = $password;
     }
-    
-     /**
-     *  Get the value of RgpdChecked
-     */
-    public function getRgpdChecked($rgpdChecked) {
-        $this->rgpdChecked = $rgpdChecked;
-    }
-    
+
     /**
-     * Set the value of Role
+     * Get the value of role
      */
-    public function setRgpdChecked($role) {
-        $this->password = $role;
+    public function getRole(): int
+    {
+        return $this->role;
     }
-    
-     /**
-     *  Get the value of RgpdChecked
+
+    /**
+     * Set the value of role
      */
-    public function getRgpdChecked($role) {
+    public function setRole(int $role): void
+    {
         $this->role = $role;
     }
-    
 }

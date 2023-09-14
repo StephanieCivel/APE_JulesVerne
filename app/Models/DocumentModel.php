@@ -103,12 +103,13 @@ class DocumentModel{
     public static function deleteDocument(int $documentId): bool
     {
         $pdo = DataBase::connectPDO();
-        $sql = 'DELETE FROM `documents` WHERE id = :id';
+        $sql = 'DELETE FROM `document` WHERE id = :id';
         $query = $pdo->prepare($sql);
         $query->bindParam('id', $documentId, PDO::PARAM_INT);
         $queryStatus = $query->execute();
         return $queryStatus;
     }
+   
 
     /**
      * Get the value of id

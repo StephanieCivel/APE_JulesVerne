@@ -211,7 +211,7 @@ class EventModel{
     /**
      * Set the value of voluntary_link
      */
-    public function setVolontary_link(string $volontary_link): void
+    public function setVolontary_link(?string $volontary_link): void
     {
         $this->volontary_link = $volontary_link;
     }
