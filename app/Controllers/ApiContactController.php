@@ -1,26 +1,19 @@
-<?php 
+<?php
 namespace App\Controllers;
-//++
-//use App\Controllers\MainController;
-require 'MainController.php';
 
-
+use App\Controllers\MainController;
 use App\Models\ContactModel;
 
+class ApiContactController extends MainController
+{
 
-class ContactController extends MainController{
-    public function renderContact(): void
+    public function renderApi(): void
     {
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            if (isset($_POST["myFormulaire"])) {
-                $this->addContact();
-        } 
         
-    }
-        $this->render();
-    }
-    public static function addContact()
-    {
+      
+              
+        
+        
         $errors = [];
 
         // Utilisation de filter_input pour obtenir les valeurs des champs du formulaire
@@ -51,8 +44,8 @@ class ContactController extends MainController{
             
             $contact = new ContactModel();
             $contact->setName($name);
-            $contact->setFirstName($first_name); // Utilisation de setFirstName au lieu de setName
-            $contact->setStudentName($student_id); // Utilisation de setStudentName au lieu de setName
+            $contact->setFirst_name($first_name); // Utilisation de setFirstName au lieu de setName
+            //$contact->setStudentName($student_id); // Utilisation de setStudentName au lieu de setName
             $contact->setClassroom($classroom);
             $contact->setEmail($email);
             $contact->setMessage($message);
@@ -63,6 +56,12 @@ class ContactController extends MainController{
                 $this->data['errors'] = '<div class="alert alert-danger" role="alert">Il y a eu une erreur lors de l\'enregistrement</div>';
             }
         }
+        header('Content-Type: application/json');
+    echo json_encode('true'); // Utilisez true sans les guillemets pour indiquer une valeur booléenne.
+        //echo "OK API";
+        // on alimente la propriété data de la class parente MainController avec la liste des articles
+       
+       // $this->render();
+          
     }
-
-} 
+}

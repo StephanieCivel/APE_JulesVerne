@@ -87,7 +87,6 @@ class EventModel{
 
     public function updateEvent(): bool
     {
-        var_dump('prgkzpoekg');
         $pdo = DataBase::connectPDO();
         // requête sql protégée des injections sql 
         $sql = "UPDATE `event` SET `date` = :date, `name` = :name, `adress` = :adress,`description` = :description, `volontary_link` = :volontary_link WHERE `id` = :id";

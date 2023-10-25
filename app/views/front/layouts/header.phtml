@@ -35,6 +35,12 @@
 
     <!--styles-->
     <link href="assets/front/css/styles.css" rel="stylesheet" />
+    
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Lien vers le fichier JavaScript pour les fonctionnalités interactives -->
+    <script src="app.js" async></script>
 </head>
 
 <body>
@@ -46,19 +52,18 @@
             </div>
             <h2>Association de parents d'élèves Jules Verne La Turballe</h2>
         </div>
-            <div class="accueil">
-                <ul>
-                    <li><a href="<?=$base_uri[0] ?>/public/home">Accueil</a></li>
-                    <li><a href="<?=$base_uri[0] ?>/public/ape">Présentation de l'APE</a></li>
-                    <li><a href="<?=$base_uri[0] ?>/public/team">Notre équipe</a></li>
-                    <li><a href="<?=$base_uri[0] ?>/public/document">Documents</a></li>
-                    <!--<li><a href="<?=$base_uri[0] ?>/public/order">Commandes</a></li>-->
-                    <li><a href="<?=$base_uri[0] ?>/public/contact">Contact</a></li>
-                    <li><a href="<?=$base_uri[0] ?>/public/login">Administrateur</a></li>
-                    <!--<li><a href="<?=$base_uri[0] ?>/public/basket">Mon panier</a></li>-->
-                </ul>
-        </nav>
+        <div class="accueil">
+            <nav id="LeMenu">
+                <li><a href="<?=$base_uri[0] ?>/public/home"class="active">Accueil</a></li>
+                <li><a href="<?=$base_uri[0] ?>/public/ape">Présentation de l'APE</a></li>
+                <li><a href="<?=$base_uri[0] ?>/public/team">Notre équipe</a></li>
+                <li><a href="<?=$base_uri[0] ?>/public/document">Documents</a></li>
+                <!--<li><a href="<?=$base_uri[0] ?>/public/order">Commandes</a></li>-->
+                <li><a href="<?=$base_uri[0] ?>/public/contact">Contact</a></li>
+                <li><a href="<?=$base_uri[0] ?>/public/login">Administrateur</a></li>
+                <!--<li><a href=a href="<?=$base_uri[0] ?>/public/basket">Mon panier</a></li>-->
+                </nav>
+        <div id="CmdMenu" title="Afficher/Masquer le Menu">&#9776;</div>
+        </div>
     </header>
-  <script src="script.js"></script>
-</body>
-</html>
+    

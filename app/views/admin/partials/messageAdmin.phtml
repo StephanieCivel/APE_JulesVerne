@@ -1,0 +1,22 @@
+<?php var_dump($data['messages']); ?>
+<?php
+if (isset($data['infos'])) {    
+ echo $data['infos'];
+}
+?>
+<tbody>
+    <?php foreach ($data['messages'] as $key => $messages) : ?>
+    <tr>
+        <td><?= htmlspecialchars($messages->getName()); ?></td>
+        <td><?= htmlspecialchars($messages->getfirst_name()); ?></td>
+        <td><?= htmlspecialchars($messages->getStudent()); ?></td>
+        <td><?= htmlspecialchars($messages->getClassroom()); ?></td>
+        <td><a href="mailto:<?= htmlspecialchars($messages->getMail()); ?>"><?= htmlspecialchars($messages->getMail()); ?></a></td>
+        <td><?= htmlspecialchars($messages->getMessage()); ?></td>
+        <td>
+           <form class="" action="" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce message ?');">
+               <input type="hidden" name="contactid" value="<?= $messages->getId(); ?>">
+               <input class="" name="contactForm" type="submit" value="Supprimer">
+           </form>
+        </td>
+<?php endforeach ?>

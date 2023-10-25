@@ -1,9 +1,9 @@
     <main class="document">
-        <h3>les résumés de nos diférentes réunions</h3>
+        <h2>les résumés de nos diférentes réunions</h3>
         <div class="documents">
             <?php if(isset($data) && !empty($data)): ?>
             <div>
-            <h2>Les Assemblées générales</h2>
+            <h3>Les Assemblées générales</h2>
                 <?php  foreach($data as $document): ?>
                 <?php  if($document->getType() === 'ag'): ?>
                 <a download href="<?= $document->getUrl(); ?>"><?= $document->getUrl(); ?></a>
@@ -11,7 +11,7 @@
                 <?php endforeach; ?>
             </div>
             <div>
-                <h2>Les documents divers</h2>
+                <h3>Les documents divers</h2>
                 <?php  foreach($data as $document): ?>
                 <?php  if($document->getType() === 'divers'): ?>
                 <a href="<?= $document->getUrl(); ?>"><?= $document->getUrl(); ?></a>

@@ -24,15 +24,14 @@ class ContactModel
         $pdo = DataBase::connectPDO();
 
         // création requête avec liaison de param pour éviter les injections sq
-        $sql = "INSERT INTO `contact`(`name`, `first_name`, `student_id`, `classroom`, `email`,`message`,`rgpdChecked`) VALUES (:name,:first_name,:student_id,:classroom,:email,:message,:rgpdChecked)";
+        $sql = "INSERT INTO `contact`(`name`,`classe_id`, `first_name`, `student_id`, `email`,`message`) VALUES (:name,1,:first_name,:student_id,:email,:message)";
         // préparation de la requête
         $pdoStatement = $pdo->prepare($sql);
         // liaison des params avec leur valeurs. tableau à passer dans execute
         $params = [
             ':name' => $this->name,
             ':first_name' =>  $this-> first_name,
-            ':student_id' =>  $this-> student_id,
-            ':classroom' =>  $this-> classroom,
+            ':student_id' => 1,
             ':email' => $this->email,
             ':message' => $this->message,
             
@@ -91,20 +90,20 @@ class ContactModel
    
 
     /**
-     * Get the value of firstName
+     * Get the value of first_name
      */
-    public function getFirstName(): string
+    public function getFirst_name(): string
     {
-        return $this->firstName;
+        return $this->first_name;
     }
 
     
     /**
-     * Set the value of firstName
+     * Set the value of first_name
      */
-    public function setFirstName(string $firstName): void
+    public function setFirst_name(string $first_name): void
     {
-        $this->firstName = $firstName;
+        $this->first_name = $first_name;
     }
     
    
@@ -112,15 +111,15 @@ class ContactModel
          /**
      * Get the value of student
      */
-    public function getStudentName(): string
+    public function getStudent_id(): string
     {
-        return $this->student_name;
+        return $this->student_id;
     }
 
     /**
      * Set the value of student
      */
-    public function setStudentName(string $student_id): void
+    public function setStudent_id(string $student_id): void
     {
         $this->student_id = $student_id;
     }

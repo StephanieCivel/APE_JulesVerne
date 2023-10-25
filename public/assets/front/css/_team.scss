@@ -1,10 +1,13 @@
+/* MOBILE FIRST */
+
 /*****************************
 NOTRE EQUIPE
 **************************** */
+
 .crew {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(7, 1fr);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     grid-gap: 4px;
     width: 80%;
     height: auto;
@@ -14,37 +17,20 @@ NOTRE EQUIPE
 
 }
 
-.president {
-    grid-row: 2/4;
-    grid-column: 5/7;
-    display: flex;
-    flex-direction: column;
-    border: 0.5rem solid #f243c9;
-    background-color: #ffffff;
-    border-radius: 10px;
-    width: 150px;
-    height: 300px;
-}
-
-.vicePresident {
-    grid-row: 5/10;
-    grid-column: 4/6;
-    display: flex;
-    flex-direction: column;
-    border: 0.5rem solid #44f444;
-    background-color: #ffffff;
-    border-radius: 10px;
-    width: 150px;
-    height: 300px;
+.presentation {
+    flex-directrion: column;
 }
 
 .vicePresident1 img,
-.president1 img {
+.president1 img,
+.treasurer img,
+.secretary img,
+.assistantSecretary img {
     width: 100px;
-    height: auto;
+    height: 150px;
     border: thick double #000000;
     border-radius: 100%;
-    margin-top:5px;
+    margin-top: 5px;
 }
 
 .vicePresident h3,
@@ -64,44 +50,64 @@ NOTRE EQUIPE
     margin-top: 0;
 }
 
+.president {
+    display: flex;
+    flex-direction: column;
+    border: 0.5rem solid #f243c9;
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 300px;
+    height: 300px;
+    align-items: center
+}
+
+.vicePresident {
+
+    display: flex;
+    flex-direction: column;
+    border: 0.5rem solid #44f444;
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 300px;
+    height: 300px;
+    align-items: center
+}
+
 .treasurer {
-    grid-row: 3/5;
-    grid-column: 3/5;    
     display: flex;
     flex-direction: column;
     border: 0.5rem solid #eea830;
     background-color: #ffffff;
     border-radius: 10px;
-    width: 150px;
+    width: 300px;
     height: 300px;
+    align-items: center
 }
 
 .secretary {
-    grid-row: 3/5;
-    grid-column: 7/9;
     display: flex;
     flex-direction: column;
     border: 0.5rem solid #1dd1e5;
     background-color: #ffffff;
     border-radius: 10px;
-    width: 150px;
+    width: 300px;
     height: 300px;
+    align-items: center
 }
 
 .assistantSecretary {
-    grid-row: 5/10;
-    grid-column: 6/8;
     display: flex;
     flex-direction: column;
     border: 0.5rem solid #f0f731;
     background-color: #ffffff;
     border-radius: 10px;
-    width: 150px;
+    width: 300px;
     height: 300px;
+    align-items: center
 }
 
 .crew p {
-    
+
     margin-bottom: 0px;
     padding-bottom: opx;
     color: #000000;
@@ -110,3 +116,55 @@ NOTRE EQUIPE
 .crew h3 {
     margin-top: 0px;
 }
+
+@media screen and (min-width: 760px) {
+    .crew {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        grid-gap: 4px;
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 0;
+        padding-top: 0;
+
+    }
+
+    .president {
+        grid-row: 2/4;
+        grid-column: 5/7;
+        width: 150px;
+    }
+
+    .vicePresident {
+        grid-row: 5/10;
+        grid-column: 4/6;
+        width: 150px;
+
+    }
+
+
+
+    .treasurer {
+        grid-row: 3/5;
+        grid-column: 3/5;
+        width: 150px;
+    }
+
+    .secretary {
+        grid-row: 3/5;
+        grid-column: 7/9;
+        width: 150px;
+    }
+
+    .assistantSecretary {
+        grid-row: 5/10;
+        grid-column: 6/8;
+        width: 150px;
+    }
+
+
+}
+
+@media screen and (min-width: 1100px) {}

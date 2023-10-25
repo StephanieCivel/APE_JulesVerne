@@ -40,6 +40,15 @@ const AVAIABLE_ROUTES = [
         'action' => 'renderContact',
         'controller' => 'ContactController'
     ],
+    'api'=>[
+        'action' => 'renderApi',
+        'controller' => 'ApiContactController'
+    ],
+    'messages'=>[
+        'action' => 'renderAdmin',
+        'controller' => 'AdminController'
+    ],
+    
     'order'=>[
         'action' => 'renderOrder',
         'controller' => 'OrderController'

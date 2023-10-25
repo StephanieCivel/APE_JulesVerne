@@ -1,21 +1,31 @@
+/* MOBILE FIRST */
+
 /*************CONTACT****************/
 
 article {
 	display: flex;
-	justify-content: center;
-	height: auto;
+	flex-direction: column;
+	align-items: center;
 }
 
-
-#contact {
-	margin-left: 20%
+form#myFormulaire {
+	width: 90%;
+	background-color: #46C1F5;
+	border-radius: 30px;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	padding-left: 1rem;
 }
 
-.form {
-	display: block;
-	margin: 50px;
-	height: auto;
-	width: 100%;
+input#name,
+input#first_name,
+input#student,
+select#classroom,
+input#email,
+textarea#message {
+	background: grey;
+	border-radius: 20px;
+	width: 20rem;
 }
 
 select {
@@ -33,13 +43,6 @@ select {
 	color: #333;
 	color: #000000;
 	border: solid;
-}
-
-label {
-	width: 30%;
-	Padding: 0.5em;
-	margin-right: 200px;
-	color: #000000;
 }
 
 textarea {
@@ -60,4 +63,26 @@ fieldset {
 .legende {
 	Padding: 1em;
 	font-size: 1.8rem;
+}
+
+@media screen and (min-width: 760px) {
+	form#myFormulaire {
+		width: 40%;
+		margin-top: 1rem;
+	}
+
+}
+
+@media screen and (min-width: 1100px) {
+	form#myFormulaire {
+		width: 30%;
+
+	} // article {
+	// 	margin-left: 100rem;
+	// 	width: 60%;
+	// 	border: solid;
+	// }
+	// .form {
+	// 	border: solid;
+	// }
 }

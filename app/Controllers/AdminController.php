@@ -9,7 +9,6 @@ class AdminController extends MainController
 {
     public function renderAdmin(): void
     {
-        var_dump($_SESSION);
         // La vue à rendre est admin. On la passe dans notre propriété viewType du controller parent
         $this->viewType = 'admin';
         $this->authUser(1);
@@ -33,6 +32,9 @@ class AdminController extends MainController
                 //  on lance la méthode de mise à jour d'article
                 $this->updateEvent();
             }
+            
+        
+            
         }
        
 

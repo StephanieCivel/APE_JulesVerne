@@ -1,41 +1,16 @@
 @charset "UTF-8";
+/* MOBILE FIRST */
 /*************HEADER****************/
-/*- Alignement du texte : centré
-- Ajouter un hyperlien index.html sur le logo
-- Couleur de fond de la navigation : #40CCEA
-- Couleur des ancres vers les sections : blanc
-- Espacer les hyperliens*/
-.navbar-menu {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 100%;
-  background-color: #333;
-  padding: 10px 0;
-}
-
-.navbar-toggle {
-  display: block;
-}
-
-.menu-open {
-  display: block;
-}
-
 header {
   background-image: url("../images/199490002_l_normal_none-removebg-preview.png");
   background-size: 100%;
   background-repeat: no-repeat;
-  background-size: cover;
-  display: block;
-  height: 20rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
-  padding-top: 5rem;
+  padding-top: 1rem;
+  width: 100%;
 }
 
 .header {
@@ -43,55 +18,24 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 20rem;
   background: #ffffff;
   opacity: 0.8;
   border-radius: 20px;
   text-align: center;
   align-content: flex-start;
-  width: 50%;
-}
-
-.header h1 {
-  display: flex;
-}
-
-.header h2 {
-  text-align: center;
-  width: 100%;
-  background: #ffffff;
-  opacity: 0.8;
-  border-radius: 20px;
-  text-align: center;
-}
-
-header ul {
-  padding: 1em;
-  text-align: center;
-  display: flex;
-  justify-content: space-evenly;
-  list-style-type: none;
-  background: #1ca4c8;
-  color: #000000;
-  width: 100%;
-  margin-bottom: 0px;
-}
-
-header a {
-  text-decoration: none;
-  color: #000000;
-}
-
-.header img {
-  width: 150px;
+  width: 70%;
+  margin-top: 0;
 }
 
 .logo {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 80%;
   align-items: center;
-  margin-top: 120px;
+}
+
+.logo img {
+  width: 5rem;
 }
 
 .ape {
@@ -111,134 +55,106 @@ header a {
 
 /*effet barre d'accueil*/
 .accueil {
-  padding-top: 150px;
   width: 100%;
 }
 
 li:hover {
-  background-color: #000000;
   transform: scale(1.5);
   transition-duration: 0.4s;
 }
 
-a:hover {
+#LeMenu a:hover {
   color: #EB3349;
+  background: #ffaaaa;
 }
 
-a {
+#LeMenu a {
   transition-duration: 0.2s;
-}
-
-/**************MENU BURGER**************/
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  padding: 10px 20px;
-  color: white;
-}
-
-.navbar-logo {
-  font-size: 24px;
-}
-
-.navbar-menu {
-  list-style: none;
-  display: none;
-}
-
-.navbar-menu li {
-  margin: 10px 0;
-}
-
-.navbar-menu a {
-  color: white;
   text-decoration: none;
+  padding: 10px 20px;
+  font: 1em Arial, Helvetica, sans-serif;
+  color: #FFFFFF;
 }
 
-.navbar-toggle {
-  display: none;
+nav#LeMenu {
+  background-color: #240845;
+  height: 5rem;
+}
+
+#LeMenu li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+/* bouton menu burger */
+#CmdMenu {
+  position: fixed;
+  top: 4px;
+  right: 4px;
+  z-index: 50;
+  padding: 5px 8px;
+  color: #fff;
+  background: #577bac;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.bar {
+#CmdMenu:hover {
+  background: #ffaaaa;
+  color: #577bac;
+  border: solid 1px #577bac;
+}
+
+#CmdMenu {
   display: block;
-  width: 25px;
-  height: 3px;
-  margin: 3px 0;
-  background-color: white;
 }
 
-@media screen and (min-width: 1200px) {
-  body {
-    margin: 16px auto;
-    max-width: 1168px;
-    /* 1200 - 16*2 */
-  }
-}
-/* valable pour tous les écrans */
-p {
-  line-height: 1.5;
-  color: #06F;
+#CmdMenu {
+  display: none;
 }
 
-/* valable pour tous les écrans supérieures à 640px */
-@media screen and (min-width: 640px) {
-  p {
-    column-count: 2;
-    /* ! column à utiliser pour des exemples simples */
+/*********RWD*********/
+@media screen and (min-width: 1100px) {
+  #LeMenu {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: auto;
+    justify-content: space-evenly;
+  }
+  #LeMenu a {
+    color: #000000;
+    border: solid 1px #fff;
+    border-radius: 30px;
+    text-align: center;
+  }
+  .accueil a {
+    background: #FFFFFF;
   }
 }
-/* valable pour tous les écrans supérieures à 960px */
-@media screen and (min-width: 960px) {
-  p {
-    column-count: 3;
-  }
-}
+/* MOBILE FIRST */
 /*************FOOTER****************/
 footer {
-  padding: 2em;
-  color: #000000;
+  color: #ffffff;
   margin-top: 20px;
   font-size: medium;
-  border-top: dotted 1px #000000;
-  background-image: url("../images/imageFooter.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
+  background-color: #240845;
 }
 
 footer a {
   text-decoration: none;
-  color: #000000;
-}
-
-footer p {
-  color: #000000;
-}
-
-#contact {
-  display: flex;
-  justify-content: space-around;
+  color: #ffffff;
 }
 
 .network1 {
   display: flex;
   flex-direction: column;
-  background: #ffffff;
-  opacity: 0.8;
-  border-radius: 20px;
-  width: 400px;
-  height: 175px;
+  align-items: center;
 }
 
 .network1 h2 {
-  margin: 0px;
   text-align: center;
 }
 
@@ -247,22 +163,15 @@ footer p {
   padding: 0px;
 }
 
-.network1 adress {
-  margin-left: 15px;
-}
-
 .network2 {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  background: #ffffff;
-  opacity: 0.8;
-  border-radius: 20px;
 }
 
 .fa-facebook-square {
-  color: #395498;
+  color: #ffffff;
 }
 
 .fa-twitter-square {
@@ -277,12 +186,13 @@ footer p {
   background: linear-gradient(#833ab4, #fd1d1d, #fcb045);
 }
 
+/* MOBILE FIRST */
 /* ************************
 APE
 ************************* */
 .presentation {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   justify-content: space-evenly;
   margin-top: 20px;
@@ -302,8 +212,7 @@ APE
   border: 4mm ridge #f243c9;
   background-color: #f774d6;
   color: #000000;
-  width: 30%;
-  height: auto;
+  border-radius: 30px;
 }
 
 .Who {
@@ -311,8 +220,7 @@ APE
   border: 4mm ridge #44f444;
   background-color: #71f271;
   color: #000000;
-  width: 30%;
-  height: auto;
+  border-radius: 30px;
 }
 
 .Or {
@@ -320,17 +228,33 @@ APE
   border: 4mm ridge #14dbe5;
   background-color: #4bd8e5;
   color: #000000;
-  width: 30%;
-  height: auto;
+  border-radius: 30px;
 }
 
+/*********RWD*********/
+@media screen and (min-width: 1100px) {
+  .presentation {
+    display: flex;
+    flex-direction: row;
+  }
+  .What {
+    width: 33%;
+  }
+  .Who {
+    width: 33%;
+  }
+  .Or {
+    width: 33%;
+  }
+}
+/* MOBILE FIRST */
 /*****************************
 NOTRE EQUIPE
 **************************** */
 .crew {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   grid-gap: 4px;
   width: 80%;
   height: auto;
@@ -339,34 +263,17 @@ NOTRE EQUIPE
   padding-top: 0;
 }
 
-.president {
-  grid-row: 2/4;
-  grid-column: 5/7;
-  display: flex;
-  flex-direction: column;
-  border: 0.5rem solid #f243c9;
-  background-color: #ffffff;
-  border-radius: 10px;
-  width: 150px;
-  height: 300px;
-}
-
-.vicePresident {
-  grid-row: 5/10;
-  grid-column: 4/6;
-  display: flex;
-  flex-direction: column;
-  border: 0.5rem solid #44f444;
-  background-color: #ffffff;
-  border-radius: 10px;
-  width: 150px;
-  height: 300px;
+.presentation {
+  flex-directrion: column;
 }
 
 .vicePresident1 img,
-.president1 img {
+.president1 img,
+.treasurer img,
+.secretary img,
+.assistantSecretary img {
   width: 100px;
-  height: auto;
+  height: 150px;
   border: thick double #000000;
   border-radius: 100%;
   margin-top: 5px;
@@ -388,40 +295,59 @@ NOTRE EQUIPE
   margin-top: 0;
 }
 
+.president {
+  display: flex;
+  flex-direction: column;
+  border: 0.5rem solid #f243c9;
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 300px;
+  height: 300px;
+  align-items: center;
+}
+
+.vicePresident {
+  display: flex;
+  flex-direction: column;
+  border: 0.5rem solid #44f444;
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 300px;
+  height: 300px;
+  align-items: center;
+}
+
 .treasurer {
-  grid-row: 3/5;
-  grid-column: 3/5;
   display: flex;
   flex-direction: column;
   border: 0.5rem solid #eea830;
   background-color: #ffffff;
   border-radius: 10px;
-  width: 150px;
+  width: 300px;
   height: 300px;
+  align-items: center;
 }
 
 .secretary {
-  grid-row: 3/5;
-  grid-column: 7/9;
   display: flex;
   flex-direction: column;
   border: 0.5rem solid #1dd1e5;
   background-color: #ffffff;
   border-radius: 10px;
-  width: 150px;
+  width: 300px;
   height: 300px;
+  align-items: center;
 }
 
 .assistantSecretary {
-  grid-row: 5/10;
-  grid-column: 6/8;
   display: flex;
   flex-direction: column;
   border: 0.5rem solid #f0f731;
   background-color: #ffffff;
   border-radius: 10px;
-  width: 150px;
+  width: 300px;
   height: 300px;
+  align-items: center;
 }
 
 .crew p {
@@ -434,18 +360,72 @@ NOTRE EQUIPE
   margin-top: 0px;
 }
 
+@media screen and (min-width: 760px) {
+  .crew {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-gap: 4px;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .president {
+    grid-row: 2/4;
+    grid-column: 5/7;
+    width: 150px;
+  }
+  .vicePresident {
+    grid-row: 5/10;
+    grid-column: 4/6;
+    width: 150px;
+  }
+  .treasurer {
+    grid-row: 3/5;
+    grid-column: 3/5;
+    width: 150px;
+  }
+  .secretary {
+    grid-row: 3/5;
+    grid-column: 7/9;
+    width: 150px;
+  }
+  .assistantSecretary {
+    grid-row: 5/10;
+    grid-column: 6/8;
+    width: 150px;
+  }
+}
+/* MOBILE FIRST */
+/*******DOCUMENT*******/
 .document a {
   color: #000000;
+  text-align: center;
 }
 
 .documents {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  align-items: flex-start;
   background: #ffffff;
   opacity: 0.8;
   border-radius: 20px;
+}
+
+.document h2 {
+  background-color: #e6aa02;
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.document h3 {
+  width: 100%;
+  font-size: 1rem;
+  text-align: center;
 }
 
 /********DOCUMENT_ADMIN***************/
@@ -453,54 +433,30 @@ NOTRE EQUIPE
   display: block;
 }
 
+/*********RWD*********/
+@media screen and (min-width: 1100px) {
+  .documents {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+/* MOBILE FIRST */
 /*************AGENDA****************/
 .video {
   margin-top: 2rem;
-  display: block;
   text-align: center;
+}
+
+.video iframe {
+  width: 30rem;
+  height: 10rem;
 }
 
 .diary h2 {
   background-color: #e6aa02;
   width: 100%;
-  font-size: 3rem;
-}
-
-.diary img {
-  display: flex;
-  width: 5rem;
-}
-
-.diary {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.diary agenda {
-  display: flex;
-}
-
-.agenda {
-  display: flex;
-  justify-content: center;
-  align-content: space-evenly;
-  flex-direction: column;
-  width: 70%;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 20px;
-}
-
-.diary h3 {
-  color: #000000;
-  font-size: 3rem;
-}
-
-.agenda ul {
-  font-size: large;
-  color: #000000;
-  width: 30rem;
+  font-size: 2rem;
   text-align: center;
 }
 
@@ -508,46 +464,183 @@ NOTRE EQUIPE
   font-size: large;
 }
 
-.dates {
-  width: 6rem;
-  height: 6rem;
-  margin-bottom: 1rem;
-  margin-top: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  background-color: #000000;
-  border-radius: 1rem;
-  border: 4mm ridge;
+.agenda {
+  align-items: center;
 }
 
 .date {
   display: flex;
-  flex-direction: row;
-  border-radius: 1rem;
-  border: solid;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
   background-color: #FF4475;
-  border-radius: 1rem;
+  padding-top: 1rem;
+  border-radius: 30px;
+}
+
+.dates {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 10px;
 }
 
 .date p {
   margin: 0;
-  padding: 0;
-  color: #ffffff;
 }
 
 .comment {
-  margin-top: 1rem;
-  margin-left: 1rem;
+  border-radius: 10px;
+}
+
+/***********CAROUSEL***********/
+/* Suppression des marges et des bords pour html et body */
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* Définition d'un container pour gérer l'affichage */
+.container {
+  overflow: hidden;
+  /* Cache les éléments qui dépassent du container */
+}
+
+/* Définition du carousel */
+.carousel {
+  position: relative;
+  /* Le carousel est positionné relativement à son parent */
+}
+
+/* Définition de l'élément contenant les diapositives */
+.carousel-inner {
+  display: flex;
+  /* Affiche les éléments en ligne */
+  overflow: hidden;
+  /* Cache les éléments qui dépassent */
+  height: 100vh;
+  /* Hauteur égale à 100% de la hauteur de la vue */
+  flex-wrap: nowrap;
+  /* Empêche les éléments de se placer sur plusieurs lignes */
+}
+
+/* Définition des diapositives */
+.slide {
+  flex: 0 0 100%;
+  /* Largeur de chaque diapositive est de 100% */
+  height: 100%;
+  /* Hauteur de chaque diapositive est de 100% */
+  transition: 0.5s ease-in-out;
+  /* Ajout d'une animation douce pour la transition entre les diapositives */
+  text-align: center;
+  margin-top: 10rem;
+}
+
+/* Définition de l'affichage de l'image de chaque diapositive */
+.slide img {
+  width: 60%;
+  /* Largeur de l'image est de 100% */
+  height: 60%;
+  /* Hauteur de l'image est de 100% */
+  object-fit: cover;
+  /* Couvre tout l'espace disponible */
+}
+
+/* Définition des boutons de contrôle du carousel */
+.carousel-controls {
+  position: absolute;
+  /* Les boutons sont absolument positionnés */
+  z-index: 5;
+  /* Ils sont placés au-dessus des autres éléments */
+  left: 10%;
+  /* La distance à gauche est de 10% */
+  right: 10%;
+  /* La distance à droite est de 10% */
+  top: 50%;
+  /* La distance du haut est de 50% */
+  display: flex;
+  /* Affiche les boutons en ligne */
+  justify-content: space-between;
+  /* Espacement égal entre les boutons */
+}
+
+/* Style des boutons de contrôle */
+.carousel-controls button {
+  padding: 10px;
+  /* Ajout de padding pour un meilleur contrôle */
+  background-color: #FF4475;
+  /* Arrière-plan en aquamarine */
+}
+
+/* Définition des points de contrôle */
+.carousel-dots {
+  position: absolute;
+  /* Les points sont absolument positionnés */
+  z-index: 5;
+  /* Ils sont placés au-dessus des autres éléments */
+  left: 50%;
+  /* La distance à gauche est de 50% */
+  right: 50%;
+  /* La distance à droite est de 50% */
+  bottom: 10%;
+  /*La distance du bas est de 10% */
+  display: flex;
+  /* Affiche les points en ligne */
+  justify-content: center;
+  /* Centrage des points */
+}
+
+/* Style des points de contrôle */
+.carousel-dots .dot {
+  border-radius: 50%;
+  /* Les points sont en forme de cercle */
+  margin: 5px;
+  /* Ajout d'un margin pour un meilleur contrôle */
+  cursor: pointer;
+  /* Curseur en forme de main pour un meilleur contrôle */
+}
+
+/* Styles pour les points de navigation du carrousel */
+.carousel-dots .active {
+  /* Border de 10px pour le point actif */
+  border: 10px solid #761530 !important;
+  /* !important permet de surcharger les autres styles éventuels */
+}
+
+.carousel-dots .inactive {
+  /* Border de 10px pour les points inactifs */
+  border: 10px solid #2596be;
 }
 
 /*************ADMIN****************/
-.date input {
-  background-color: blue;
-  height: 1rem;
-  width: 4rem;
+/*********RWD*********/
+@media screen and (min-width: 760px) {
+  .diary h2 {
+    font-size: 2rem;
+  }
+  .agenda {
+    display: flex;
+    flex-direction: column;
+    align-item: center;
+  }
+  .date {
+    width: 60%;
+  }
+  .video iframe {
+    width: 50rem;
+    height: 20rem;
+  }
 }
-
+@media screen and (min-width: 1100px) {
+  .date {
+    display: flex;
+    flex-direction: row;
+    padding-left: 1rem;
+    width: 50%;
+    justify-content: space-evenly;
+  }
+}
 .commandes {
   height: auto;
 }
@@ -564,77 +657,32 @@ NOTRE EQUIPE
   border: solid;
 }
 
-/*************GENERAL******************/
-h1,
-h2,
-h3 {
-  font-weight: normal;
-  line-height: 1.5em;
-}
-
-h1 {
-  font-size: 5rem;
-  font-weight: bold;
-}
-
-h2 {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: #000000;
-}
-
-h3 {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #000000;
-}
-
-p,
-a {
-  font-size: medium;
-  color: #000000;
-}
-
-/*************BODY******************/
-/*- Police du corps de page : Lato (Google Font)
-- Couleur du texte : #333
-- Interlignage du texte : 1.6em
-- Reseter les marges du body*/
-body {
-  line-height: 1.6em;
-  background-position: center;
-}
-
-main {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  color: #000000;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-}
-
-input {
-  border: solid;
-}
-
+/* MOBILE FIRST */
 /*************CONTACT****************/
 article {
   display: flex;
-  justify-content: center;
-  height: auto;
+  flex-direction: column;
+  align-items: center;
 }
 
-#contact {
-  margin-left: 20%;
+form#myFormulaire {
+  width: 90%;
+  background-color: #46C1F5;
+  border-radius: 30px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
 }
 
-.form {
-  display: block;
-  margin: 50px;
-  height: auto;
-  width: 100%;
+input#name,
+input#first_name,
+input#student,
+select#classroom,
+input#email,
+textarea#message {
+  background: grey;
+  border-radius: 20px;
+  width: 20rem;
 }
 
 select {
@@ -651,13 +699,6 @@ select {
   color: #333;
   color: #000000;
   border: solid;
-}
-
-label {
-  width: 30%;
-  Padding: 0.5em;
-  margin-right: 200px;
-  color: #000000;
 }
 
 textarea {
@@ -677,6 +718,23 @@ fieldset {
 .legende {
   Padding: 1em;
   font-size: 1.8rem;
+}
+
+@media screen and (min-width: 760px) {
+  form#myFormulaire {
+    width: 40%;
+    margin-top: 1rem;
+  }
+}
+@media screen and (min-width: 1100px) {
+  form#myFormulaire {
+    width: 30%;
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /*# sourceMappingURL=styles.css.map */

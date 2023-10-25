@@ -47,11 +47,14 @@
             <h2>Association de parents d'élèves Jules Verne La Turballe</h2>
         </div>
         <div class="accueil">
-            <ul>
+            <nav id="LeMenu">
+            
                 <li><a href="<?=$base_uri[0] ?>/public/admin">Evènement</a></li>
                 <li><a href="<?=$base_uri[0] ?>/public/documentAdmin">Documents</a></li>
-                <li><a href="<?=$base_uri[0] ?>/public/orderAdmin">Commandes</a></li>
-            </ul>
+                <!--<li><a href="<?=$base_uri[0] ?>/public/orderAdmin">Commandes</a></li>-->
+                <li><a href="<?=$base_uri[0] ?>/public/messageAdmin">Messages</a></li>
+                
+            
             <form method="post" action="<?=$base_uri[0] ?>/public/logout">
                 <input type="hidden" name="logout">
                 <input class="btn" name="logout" type="submit" value="Déconnexion"/>
