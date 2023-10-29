@@ -3,7 +3,7 @@
 /*************HEADER****************/
 
 header {
-    background-image: url("../images/199490002_l_normal_none-removebg-preview.png");
+    //background-image: url("../images/199490002_l_normal_none-removebg-preview.png");
     background-size: 100%;
     background-repeat: no-repeat;
     display: flex;
@@ -61,90 +61,247 @@ header {
     width: 100%;
 }
 
-li:hover {
+// /**************MENU BURGER**************/
+/*********RWD*********/
+
+// @media screen and (min-width: 760px) {}
+// @media screen and (min-width: 1100px) {}
+// .accueil * {
+//     padding: 0;
+//     margin: 0;
+//     font-family: "Segoe UI";
+// }
+// .accueil li {
+//     list-style: none;
+//     display: flex;
+//     justify-content: center
+// }
+// .accueil li:hover {
+//     transform: scale(1.5);
+//     transition-duration: 0.4s;
+// }
+// .accueil a,
+// .accueil a:visited {
+//     text-decoration: none;
+//     text-transform: uppercase;
+//     transition-duration: 0.2s;
+//     padding: 10px 20px;
+//     font: 1em Arial, Helvetica, sans-serif;
+//     background: #FFFFFF;
+//     color: #000000;
+//     border: solid 1px #fff;
+//     border-radius: 30px;
+//     text-align: center;
+// }
+// .accueil a:hover {
+//     background: #ffaaaa;
+//     color: #577bac;
+//     border: solid 1px #577bac;
+// }
+// /**** NAVBAR ****/
+// .accueil nav {
+//     background: #240845;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding: 10px;
+//     max-width: 1400px;
+//     height: auto;
+// }
+// .accueil nav ul {
+//     display: flex;
+//     justify-content: space-evenly;
+// }
+// .accueil #icons {
+//     cursor: pointer;
+//     display: none;
+// }
+// @media (max-width: 650px) {
+//     .accueil #icons {
+//         display: block;
+//     }
+//     .accueil #icons:before {
+//         content: "\2630";
+//         color: #ffffff;
+//     }
+//     .accueil .active #icons:before {
+//         content: "\2715";
+//         color: #ffffff;
+//     }
+//     .accueil nav ul {
+//         position: fixed;
+//         left: -100%;
+//         top: 5%;
+//         flex-direction: column;
+//         background: skyblue;
+//         width: 100%;
+//         text-align: center;
+//         transition: 0.25s;
+//     }
+//     .accueil nav li {
+//         padding: 3px 0;
+//     }
+//     .accueil nav li:hover {
+//         background: rgb(157, 217, 240);
+//     }
+//     .accueil nav.active ul {
+//         left: 0;
+//     }
+// }
+/*.accueil * {
+    padding: 0;
+    margin: 0;
+    font-family: "Segoe UI";
+}
+
+.accueil li {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.accueil li:hover {
     transform: scale(1.5);
     transition-duration: 0.4s;
 }
 
-#LeMenu a:hover {
-    color: #EB3349;
-    background: #ffaaaa; // color: #577bac; // border: solid 1px #577bac;
-}
-
-#LeMenu a {
-    transition-duration: 0.2s;
+.accueil a,
+.accueil a:visited {
     text-decoration: none;
+    text-transform: uppercase;
+    transition-duration: 0.2s;
     padding: 10px 20px;
-    font: 1em Arial, Helvetica, sans-serif; // text-transform: uppercase;
-    color: #FFFFFF;
-
+    font: 1em Arial, Helvetica, sans-serif;
+    background: #FFFFFF;
+    color: #000000;
+    border: solid 1px #fff;
+    border-radius: 30px;
+    text-align: center;
 }
 
-nav#LeMenu {
-    background-color: #240845;
-    height: 5rem;
-}
-
-#LeMenu li {
-    list-style: none;
-    display: flex;
-    justify-content: center
-}
-
-
-
-// /**************MENU BURGER**************/
-/* bouton menu burger */
-
-#CmdMenu {
-    position: fixed;
-    top: 4px;
-    right: 4px;
-    z-index: 50;
-    padding: 5px 8px;
-    color: #fff;
-    background: #577bac;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#CmdMenu:hover {
+.accueil a:hover {
     background: #ffaaaa;
     color: #577bac;
     border: solid 1px #577bac;
+}*/
+
+/**** NAVBAR ****/
+
+/*.accueil nav {
+    background: #240845;
+    padding: 10px;
+    max-width: 1400px;
+    height: auto;
 }
 
-#CmdMenu {
-    display: block;
+.accueil nav ul {
+    display: flex;
+    justify-content: space-evenly;
 }
 
-#CmdMenu {
+.accueil #icons {
+    cursor: pointer;
     display: none;
 }
 
+.accueil .active #icons:before {
+    content: "\2715";
+    color: #ffffff;
+}*/
 
+/* Styles pour les écrans mobiles (jusqu'à 650px de large) */
 
-/*********RWD*********/
+/*@media (max-width: 650px) {
+    .accueil #icons {
+        display: block;
+    }
+    .accueil #icons:before {
+        content: "\2630";
+        color: #ffffff;
+    }
+    .accueil nav ul {
+        position: fixed;
+        left: -100%;
+        top: 5%;
+        flex-direction: column;
+        background: skyblue;
+        width: 100%;
+        text-align: center;
+        transition: 0.25s;
+    }
+    .accueil nav li {
+        padding: 3px 0;
+    }
+    .accueil nav li:hover {
+        background: rgb(157, 217, 240);
+    }
+    .accueil nav.active ul {
+        left: 0;
+    }
+}*/
 
-@media screen and (min-width: 760px) {}
-
-@media screen and (min-width: 1100px) {
-
-    #LeMenu {
-        max-width: 1400px;
-        margin: 0 auto;
+nav {
+    height: 60px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #240845;
+    #navButton {
         display: flex;
         align-items: center;
-        height: auto;
-        justify-content: space-evenly
+        justify-content: center;
+
+        .burger {
+            display: block;
+        }
+
+        .cross {
+            display: none;
+        }
+
+        &.active {
+            .burger {
+                display: none;
+            }
+
+            .cross {
+                display: block;
+            }
+        }
+
+        @media screen and (min-width:660px) {
+            display: none;
+        }
     }
-    #LeMenu a {
-        color: #000000;
-        border: solid 1px #fff;
-        border-radius: 30px;
-        text-align: center;
-    }
-    .accueil a {
-        background: #FFFFFF;
+
+    #navMenu {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 60px;
+        background-color: #240845;
+        list-style: none;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease-in;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        &.active {
+            transform: translateX(0);
+            transition: transform 0.5s ease-out;
+        }
+
+        @media screen and (min-width: 660px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            position: initial;
+            transform: translateX(0);
+        }
     }
 }

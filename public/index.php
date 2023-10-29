@@ -130,6 +130,7 @@ if(array_key_exists($page,AVAIABLE_ROUTES)){
 }else{
     // si la route ne correspond pas, on appelle ErrorController
     $controller = 'ErrorController';
+    $controllerAction = 'renderError';
 }
 
 $namespace = 'App\Controllers';

@@ -46,14 +46,28 @@
             </div>
             <h2>Association de parents d'élèves Jules Verne La Turballe</h2>
         </div>
-        <div class="accueil">
-            <nav id="LeMenu">
-            
-                <li><a href="<?=$base_uri[0] ?>/public/admin">Evènement</a></li>
-                <li><a href="<?=$base_uri[0] ?>/public/documentAdmin">Documents</a></li>
-                <!--<li><a href="<?=$base_uri[0] ?>/public/orderAdmin">Commandes</a></li>-->
-                <li><a href="<?=$base_uri[0] ?>/public/messageAdmin">Messages</a></li>
-                
+         <div class="accueil">
+            <nav id="nav">
+                <div id="navButton">
+                    <div class="burger">
+                        <svg width="30" height="22" viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2C0 0.895432 0.895432 0 2 0H28C29.1046 0 30 0.895432 30 2C30 3.10457 29.1046 4 28 4H2C0.895432 4 0 3.10457 0 2ZM0 11C0 9.89543 0.895432 9 2 9H28C29.1046 9 30 9.89543 30 11C30 12.1046 29.1046 13 28 13H2C0.895432 13 0 12.1046 0 11ZM2 18C0.895432 18 0 18.8954 0 20C0 21.1046 0.895432 22 2 22H28C29.1046 22 30 21.1046 30 20C30 18.8954 29.1046 18 28 18H2Z" fill="#fff" />
+                        </svg>
+                    </div>
+                    <div class="cross">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.2219 1.39341C3.44085 0.612354 2.17452 0.612354 1.39347 1.39341C0.612415 2.17445 0.612415 3.44078 1.39347 4.22183L9.1716 12L1.39341 19.7782C0.612354 20.5592 0.612354 21.8256 1.39341 22.6066C2.17444 23.3877 3.44078 23.3877 4.22182 22.6066L12 14.8284L19.7782 22.6066C20.5593 23.3877 21.8256 23.3877 22.6067 22.6066C23.3877 21.8256 23.3877 20.5592 22.6067 19.7782L14.8285 12L22.6066 4.22184C23.3877 3.44078 23.3877 2.17446 22.6066 1.39341C21.8256 0.612358 20.5592 0.612358 19.7782 1.39341L12 9.17154L4.2219 1.39341Z" fill="#fff" />
+                        </svg>
+                    </div>
+                </div>
+                <ul id="navMenu">
+                    <li><a href="<?=$base_uri[0] ?>/public/admin">Evènement</a></li>
+                    <li><a href="<?=$base_uri[0] ?>/public/documentAdmin">Documents</a></li>
+                    <!--<li><a href="<?=$base_uri[0] ?>/public/orderAdmin">Commandes</a></li>-->
+                    <!--<li><a href="<?=$base_uri[0] ?>/public/messageAdmin">Messages</a></li>-->
+                </ul>
+                <div id="icons"></div>
+             </nav>   
             
             <form method="post" action="<?=$base_uri[0] ?>/public/logout">
                 <input type="hidden" name="logout">

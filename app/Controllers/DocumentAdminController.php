@@ -73,23 +73,41 @@ class DocumentAdminController extends MainController
         // elle récupère une variable externe d'un champs de formulaire et la filtre
     
         $type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_SPECIAL_CHARS);
-        $url = filter_input(INPUT_POST, 'url', FILTER_SANITIZE_SPECIAL_CHARS);
+        //$url = filter_input(INPUT_POST, 'url', FILTER_SANITIZE_SPECIAL_CHARS);
         
-
-        // On créé une nouvelle instance de PostModel
-        $documentModel = new DocumentModel();
-        // puis on utilise les setters pour ajouter les valeurs au propriétés privée du postModel
+        // ******* MODIF *******
+        $uploadedFile = $_FILES["url"];
         
-        $documentModel->setType($type);
-        $documentModel->setUrl($url);
+        $url = htmlspecialchars($uploadedFile['name']);
+        
+        var_dump($uploadedFile);
+        var_dump($url);
+        //var_dump($url);
+        
+        $uploadDirectory = __DIR__ . "/../../public/assets/front/doc/";
+        
+        $destination = $uploadDirectory.$url;
+        
+        if (move_uploaded_file($uploadedFile['tmp_name'], $destination)) {
+            
+            // On créé une nouvelle instance de PostModel
+            $documentModel = new DocumentModel();
+            // puis on utilise les setters pour ajouter les valeurs au propriétés privée du postModel
+        
+            $documentModel->setType($type);
+            $documentModel->setUrl($url);
 
-        // on déclenche l'instertion d'article dans une conditions car PDO va renvoyer true ou false
-        if ($documentModel->insertDocument()) {
-            // donc si la requête d'insertion s'est bien passée, on renvoie true et on stocke un message de succès dans la propriété data
-            $this->data[] = '<div class="alert alert-success" role="alert">Article enregistré avec succès</div>';
+            // on déclenche l'instertion d'article dans une conditions car PDO va renvoyer true ou false
+            if ($documentModel->insertDocument()) {
+                // donc si la requête d'insertion s'est bien passée, on renvoie true et on stocke un message de succès dans la propriété data
+                $this->data[] = '<div class="alert alert-success" role="alert">Article enregistré avec succès</div>';
+            } else {
+                // sinon, stocke un message d'erreur
+                $this->data[] = '<div class="alert alert-danger" role="alert">Il s\'est produit une erreur</div>';
+            }
         } else {
-            // sinon, stocke un message d'erreur
-            $this->data[] = '<div class="alert alert-danger" role="alert">Il s\'est produit une erreur</div>';
+            // Une erreur s'est produite lors du déplacement du fichier
+            $this->data[] = '<div class="alert alert-danger" role="alert">Une erreur s\'est produite lors du téléchargement du fichier.</div>';
         }
     }
 
